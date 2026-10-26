@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Manage the Fall 2026 semester and the courses that organise your academic tasks." />
+  <meta name="keywords" content="student task management, STM, assignments, deadlines, study planner, SQU" />
+  <meta name="author" content="Abdulrhman Khalfan Al-Degheishi, Hamed Hilal Al-Shekaili" />
+  <title>Course &amp; Semester Manager | STM – Student Task Management</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <!-- 1) EXTERNAL CSS: shared by every page (logo, navigation, layout, footer) -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <!-- 2) INTERNAL (document-level) CSS: rules used only on this page -->
+  <style>
+    .semester-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .semester-bar dl {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 28px;
+    }
+
+    .semester-bar dt {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #5B6880;
+    }
+
+    .semester-bar dd {
+      font-weight: 600;
+      color: #0B3170;
+    }
+
+    .course-card h3 {
+      margin-top: 4px;
+    }
+
+    .course-card .progress {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <!-- ===== Uniform header with logo (same on all pages) ===== -->
+  <header id="site-header">
+    <div class="container header-inner">
+      <a class="logo-link" href="../index.html" title="STM home">
+        <img src="../images/logo.png" alt="STM – Student Task Management logo" width="360" height="243" />
+      </a>
+      <div class="header-actions">
+        <span class="today-chip">Fall 2026 Semester</span>
+        <a class="btn btn-small" href="login.html">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Uniform navigation menu ===== -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a class="active" href="courses.html" aria-current="page">Courses</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="login.html">Login / Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="content">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="../index.html">Dashboard</a></li>
+          <li>Courses</li>
+        </ol>
+        <h1>Course &amp; semester manager</h1>
+        <p>Build your academic hierarchy: create a semester, add its courses, then link every task to the right course.</p>
+      </div>
+    </section>
+
+    <!-- Active semester summary -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="card semester-bar">
+          <div>
+            <span class="badge pending">Active semester</span>
+            <h2 style="margin: 6px 0 0;">Fall 2026</h2>
+          </div>
+          <dl>
+            <div><dt>Starts</dt><dd>30 Aug 2026</dd></div>
+            <div><dt>Ends</dt><dd>24 Dec 2026</dd></div>
+            <div><dt>Courses</dt><dd>4</dd></div>
+            <div><dt>Credit hours</dt><dd>13</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course cards (each card's colour uses INLINE CSS = the course colour tag) -->
+    <section class="section-tight">
+      <div class="container">
+        <h2>My courses</h2>
+        <p>Each course has its own colour tag, used on the dashboard and the calendar.</p>
+        <div class="grid-4">
+          <article class="card course-card" style="border-top-color: #2474E5;">
+            <span class="code">COMP3700</span>
+            <h3>Web Computing</h3>
+            <ul>
+              <li>Instructor: Dr. Ahmed Soleimani</li>
+              <li>3 credit hours &#183; Sun / Tue</li>
+              <li>6 tasks &#183; 4 done</li>
+            </ul>
+            <div class="progress"><span style="width: 67%; background-color: #2474E5;"></span></div>
+            <span class="small muted">67% of tasks completed</span>
+          </article>
+          <article class="card course-card" style="border-top-color: #1F9D6B;">
+            <span class="code">COMP3600</span>
+            <h3>Intelligent Systems</h3>
+            <ul>
+              <li>Instructor: TBA</li>
+              <li>3 credit hours &#183; Sun / Tue</li>
+              <li>5 tasks &#183; 3 done</li>
+            </ul>
+            <div class="progress"><span style="width: 60%; background-color: #1F9D6B;"></span></div>
+            <span class="small muted">60% of tasks completed</span>
+          </article>
+          <article class="card course-card" style="border-top-color: #C98A0B;">
+            <span class="code">COMP3205</span>
+            <h3>Database Systems</h3>
+            <ul>
+              <li>Instructor: TBA</li>
+              <li>3 credit hours &#183; Sun / Tue</li>
+              <li>4 tasks &#183; 1 done</li>
+            </ul>
+            <div class="progress"><span style="width: 25%; background-color: #C98A0B;"></span></div>
+            <span class="small muted">25% of tasks completed</span>
+          </article>
+          <article class="card course-card" style="border-top-color: #D4363C;">
+            <span class="code">MATH2108</span>
+            <h3>Calculus II</h3>
+            <ul>
+              <li>Instructor: TBA</li>
+              <li>4 credit hours &#183; Sun / Tue / Thu</li>
+              <li>7 tasks &#183; 5 done</li>
+            </ul>
+            <div class="progress"><span style="width: 71%; background-color: #D4363C;"></span></div>
+            <span class="small muted">71% of tasks completed</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLE 4: workload per course (rowspan for semester, colspan for assessment group) -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="card">
+          <h2>Workload overview</h2>
+          <p>Number of assessments per course and how many are still open.</p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th rowspan="2" scope="col">Semester</th>
+                  <th rowspan="2" scope="col">Course</th>
+                  <th rowspan="2" scope="col">Credits</th>
+                  <th colspan="3" scope="colgroup">Assessments</th>
+                  <th colspan="2" scope="colgroup">Task status</th>
+                </tr>
+                <tr>
+                  <th scope="col">Assignments</th>
+                  <th scope="col">Exams</th>
+                  <th scope="col">Projects</th>
+                  <th scope="col">Open</th>
+                  <th scope="col">Done</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th rowspan="4" scope="rowgroup">Fall 2026</th>
+                  <td><span class="dot" style="background-color: #2474E5;"></span>Web Computing</td>
+                  <td class="num">3</td>
+                  <td class="num">2</td>
+                  <td class="num">2</td>
+                  <td class="num">2</td>
+                  <td class="num">2</td>
+                  <td class="num">4</td>
+                </tr>
+                <tr>
+                  <td><span class="dot" style="background-color: #1F9D6B;"></span>Intelligent Systems</td>
+                  <td class="num">3</td>
+                  <td class="num">1</td>
+                  <td class="num">3</td>
+                  <td class="num">1</td>
+                  <td class="num">2</td>
+                  <td class="num">3</td>
+                </tr>
+                <tr>
+                  <td><span class="dot" style="background-color: #C98A0B;"></span>Database Systems</td>
+                  <td class="num">3</td>
+                  <td class="num">2</td>
+                  <td class="num">1</td>
+                  <td class="num">1</td>
+                  <td class="num">3</td>
+                  <td class="num">1</td>
+                </tr>
+                <tr>
+                  <td><span class="dot" style="background-color: #D4363C;"></span>Calculus II</td>
+                  <td class="num">4</td>
+                  <td class="num">4</td>
+                  <td class="num">3</td>
+                  <td class="num">0</td>
+                  <td class="num">2</td>
+                  <td class="num">5</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="2" scope="row">Total</th>
+                  <td class="num">13</td>
+                  <td class="num">9</td>
+                  <td class="num">9</td>
+                  <td class="num">4</td>
+                  <td class="num">9</td>
+                  <td class="num">13</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM: add a semester -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="card">
+          <h2>Add a semester</h2>
+          <p>Create a new academic term first, then add its courses below.</p>
+          <form action="https://httpbin.org/get" method="get" target="_blank">
+            <input type="hidden" name="form_name" value="add_semester" />
+            <fieldset>
+              <legend>Semester information</legend>
+              <div class="form-grid">
+                <div class="form-row">
+                  <label for="semester_term">Term</label>
+                  <select id="semester_term" name="semester_term">
+                    <option value="fall">Fall</option>
+                    <option value="spring" selected="selected">Spring</option>
+                    <option value="summer">Summer</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="semester_year" class="required">Year</label>
+                  <input type="number" id="semester_year" name="semester_year" min="2020" max="2040" value="2027" required="required" />
+                </div>
+                <div class="form-row">
+                  <label for="semester_start" class="required">Start date</label>
+                  <input type="date" id="semester_start" name="semester_start" value="2027-01-17" required="required" />
+                </div>
+                <div class="form-row">
+                  <label for="semester_end" class="required">End date</label>
+                  <input type="date" id="semester_end" name="semester_end" value="2027-05-20" required="required" />
+                </div>
+                <div class="form-row full">
+                  <label for="semester_notes">Notes (optional)</label>
+                  <textarea id="semester_notes" name="semester_notes" rows="3" cols="40" placeholder="e.g. Final exams start on 9 May"></textarea>
+                </div>
+                <div class="form-row full">
+                  <label><input type="checkbox" name="semester_active" value="yes" /> Make this the active semester</label>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <input type="submit" value="Add semester" />
+              <input type="reset" value="Reset" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM: add a course -->
+    <section class="section-tight">
+      <div class="container layout-main-side">
+        <div class="card">
+          <h2>Add a course</h2>
+          <p>New courses appear as a card above and as a filter on the dashboard.</p>
+          <form action="https://httpbin.org/get" method="get" target="_blank">
+            <input type="hidden" name="form_name" value="add_course" />
+            <fieldset>
+              <legend>Course information</legend>
+              <div class="form-grid">
+                <div class="form-row">
+                  <label for="course_semester">Semester</label>
+                  <select id="course_semester" name="course_semester">
+                    <option value="fall_2026" selected="selected">Fall 2026</option>
+                    <option value="spring_2027">Spring 2027</option>
+                    <option value="summer_2027">Summer 2027</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="course_code">Course code</label>
+                  <input type="text" id="course_code" name="course_code" placeholder="e.g. COMP3401" pattern="[A-Za-z]{3,4}[0-9]{4}" title="3–4 letters followed by 4 digits" />
+                </div>
+                <div class="form-row full">
+                  <label for="course_name" class="required">Course name</label>
+                  <input type="text" id="course_name" name="course_name" placeholder="e.g. Operating Systems" required="required" />
+                </div>
+                <div class="form-row">
+                  <label for="course_instructor">Instructor (optional)</label>
+                  <input type="text" id="course_instructor" name="course_instructor" list="instructor_list" size="30" placeholder="Start typing..." />
+                  <datalist id="instructor_list">
+                    <option value="Dr. Ahmed Soleimani"></option>
+                    <option value="Lab instructor"></option>
+                    <option value="Teaching assistant"></option>
+                  </datalist>
+                </div>
+                <div class="form-row">
+                  <label for="course_credits">Credit hours</label>
+                  <input type="number" id="course_credits" name="course_credits" min="1" max="6" value="3" />
+                </div>
+                <div class="form-row full">
+                  <span class="label">Class days</span>
+                  <div class="choice-group">
+                    <label><input type="checkbox" name="course_days" value="sun" /> Sun</label>
+                    <label><input type="checkbox" name="course_days" value="mon" /> Mon</label>
+                    <label><input type="checkbox" name="course_days" value="tue" /> Tue</label>
+                    <label><input type="checkbox" name="course_days" value="wed" /> Wed</label>
+                    <label><input type="checkbox" name="course_days" value="thu" /> Thu</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="course_start">Starts at</label>
+                  <input type="time" id="course_start" name="course_start" value="09:00" />
+                </div>
+                <div class="form-row">
+                  <label for="course_end">Ends at</label>
+                  <input type="time" id="course_end" name="course_end" value="10:00" />
+                </div>
+                <div class="form-row">
+                  <span class="label">Delivery mode</span>
+                  <div class="choice-group">
+                    <label><input type="radio" name="course_mode" value="on_campus" checked="checked" /> On campus</label>
+                    <label><input type="radio" name="course_mode" value="online" /> Online</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="course_color">Colour tag</label>
+                  <input type="color" id="course_color" name="course_color" value="#2474e5" />
+                </div>
+                <div class="form-row full">
+                  <label for="course_url">Course page (Moodle link)</label>
+                  <input type="url" id="course_url" name="course_url" placeholder="https://moodle.squ.edu.om/..." />
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <input type="submit" value="Add course" />
+              <input type="reset" value="Reset" />
+            </div>
+          </form>
+        </div>
+
+        <aside class="card">
+          <img src="../images/icon-courses.svg" alt="Graduation cap icon" width="56" height="56" style="margin-bottom: 12px;" />
+          <h3>How the hierarchy works</h3>
+          <ul class="square-list">
+            <li>Semester (e.g. Fall 2026)
+              <ul>
+                <li>Course (e.g. Web Computing)
+                  <ul>
+                    <li>Tasks, exams and projects</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>General workspace
+              <ul>
+                <li>Personal, religious and wellness tasks</li>
+              </ul>
+            </li>
+          </ul>
+          <p class="small muted" style="margin-top: 12px;">Tasks in the General workspace are not linked to any course.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Uniform footer (same on all pages) ===== -->
+  <footer id="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="footer-logo" href="../index.html"><img src="../images/logo.png" alt="STM logo" width="360" height="243" /></a>
+        <p>STM helps students organise courses, deadlines, goals and personal commitments in one calm, distraction-free place.</p>
+      </div>
+      <div>
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="../index.html">Task Dashboard</a></li>
+          <li><a href="calendar.html">Academic Calendar</a></li>
+          <li><a href="courses.html">Course Manager</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="profile.html">Profile &amp; Settings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="aboutus.html">About the team</a></li>
+          <li><a href="contact.html">Contact form &amp; FAQ</a></li>
+          <li><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></li>
+          <li>Department of Computer Science, Sultan Qaboos University, Muscat, Oman</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&#169; 2026 STM – Student Task Management. COMP3700 course project.</span>
+      <span>Built with HTML5 &amp; pure CSS3</span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Send the STM team a message and read answers to common questions." />
+  <meta name="keywords" content="student task management, STM, assignments, deadlines, study planner, SQU" />
+  <meta name="author" content="Abdulrhman Khalfan Al-Degheishi, Hamed Hilal Al-Shekaili" />
+  <title>Contact Us | STM – Student Task Management</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <!-- 1) EXTERNAL CSS: shared by every page (logo, navigation, layout, footer) -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <!-- 2) INTERNAL (document-level) CSS: rules used only on this page -->
+  <style>
+    .contact-info li {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #E8EEF7;
+    }
+
+    .contact-info li:last-child {
+      border-bottom: none;
+    }
+
+    .contact-info strong {
+      display: block;
+      color: #0B3170;
+    }
+
+    #faq h2 {
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <!-- ===== Uniform header with logo (same on all pages) ===== -->
+  <header id="site-header">
+    <div class="container header-inner">
+      <a class="logo-link" href="../index.html" title="STM home">
+        <img src="../images/logo.png" alt="STM – Student Task Management logo" width="360" height="243" />
+      </a>
+      <div class="header-actions">
+        <span class="today-chip">Fall 2026 Semester</span>
+        <a class="btn btn-small" href="login.html">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Uniform navigation menu ===== -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a class="active" href="contact.html" aria-current="page">Contact Us</a></li>
+        <li><a href="login.html">Login / Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="content">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li>Contact Us</li>
+        </ol>
+        <h1>Contact us</h1>
+        <p>Questions, bug reports or ideas for new features? Send us a message – it goes straight to the STM team's inbox.</p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container layout-main-side">
+
+        <!-- CONTACT FORM: sends the form contents to an e-mail account -->
+        <div class="card">
+          <h2>Send a message</h2>
+          <p>Submitting opens your e-mail program with the message ready to send.</p>
+          <form action="mailto:s145376@student.squ.edu.om?subject=STM%20contact%20form" method="post" enctype="text/plain">
+            <fieldset>
+              <legend>Your details</legend>
+              <div class="form-grid">
+                <div class="form-row">
+                  <label for="contact_name" class="required">Display name</label>
+                  <input type="text" id="contact_name" name="contact_name" placeholder="e.g. Hamed" required="required" />
+                </div>
+                <div class="form-row">
+                  <label for="contact_email" class="required">E-mail</label>
+                  <input type="email" id="contact_email" name="contact_email" placeholder="you@student.squ.edu.om" required="required" />
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Message</legend>
+              <div class="form-grid">
+                <div class="form-row">
+                  <label for="contact_subject">Subject</label>
+                  <select id="contact_subject" name="contact_subject">
+                    <option value="general">General question</option>
+                    <option value="technical">Technical problem</option>
+                    <option value="feature">Feature request</option>
+                    <option value="privacy">Data &amp; privacy</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <span class="label">Preferred reply</span>
+                  <div class="choice-group">
+                    <label><input type="radio" name="contact_reply" value="email" checked="checked" /> E-mail</label>
+                    <label><input type="radio" name="contact_reply" value="none" /> No reply needed</label>
+                  </div>
+                </div>
+                <div class="form-row full">
+                  <label for="contact_message" class="required">Message</label>
+                  <textarea id="contact_message" name="contact_message" rows="6" cols="50" placeholder="Tell us how we can help..." required="required"></textarea>
+                </div>
+                <div class="form-row full">
+                  <label style="font-weight: 400;"><input type="checkbox" name="contact_newsletter" value="yes" /> Send me news about new STM features</label>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <input type="submit" value="Send message" />
+              <input type="reset" value="Clear" />
+            </div>
+          </form>
+        </div>
+
+        <aside>
+          <div class="card">
+            <img src="../images/contact-mail.svg" alt="Illustration of an envelope and a message bubble" width="320" height="240" style="margin: 0 auto 10px; max-width: 220px;" />
+            <h3>Other ways to reach us</h3>
+            <ul class="contact-info" style="list-style: none;">
+              <li><span><strong>E-mail</strong><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></span></li>
+              <li><span><strong>Location</strong>Department of Computer Science, Sultan Qaboos University, Muscat</span></li>
+              <li><span><strong>Response time</strong>Within two working days (Sunday – Thursday)</span></li>
+              <li><span><strong>Team</strong><a href="aboutus.html#team">Meet the people behind STM</a></span></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FAQ (details / summary – opens and closes without JavaScript) -->
+    <section class="section-tight" id="faq">
+      <div class="container">
+        <h2>Frequently asked questions</h2>
+        <details>
+          <summary>Is my data private?</summary>
+          <p>Yes. STM only asks for a display name and an e-mail address. Passwords are stored as BCRYPT hashes and all traffic uses HTTPS.</p>
+        </details>
+        <details>
+          <summary>How do I change when I get reminders?</summary>
+          <p>Go to <a href="profile.html#notifications">Profile &amp; Settings</a> and choose a lead time (2 hours to 1 week) and your quiet hours.</p>
+        </details>
+        <details>
+          <summary>I forgot my password. What should I do?</summary>
+          <p>Use the contact form above and choose "Technical problem". We will help you reset your password.</p>
+        </details>
+        <details>
+          <summary>Can I track tasks that are not related to a course?</summary>
+          <p>Yes. The General workspace is made for personal, religious, wellness and club tasks.</p>
+        </details>
+        <details>
+          <summary>Does STM cost anything?</summary>
+          <p>No. STM is free for all students.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Uniform footer (same on all pages) ===== -->
+  <footer id="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="footer-logo" href="../index.html"><img src="../images/logo.png" alt="STM logo" width="360" height="243" /></a>
+        <p>STM helps students organise courses, deadlines, goals and personal commitments in one calm, distraction-free place.</p>
+      </div>
+      <div>
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="../index.html">Task Dashboard</a></li>
+          <li><a href="calendar.html">Academic Calendar</a></li>
+          <li><a href="courses.html">Course Manager</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="profile.html">Profile &amp; Settings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="aboutus.html">About the team</a></li>
+          <li><a href="contact.html">Contact form &amp; FAQ</a></li>
+          <li><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></li>
+          <li>Department of Computer Science, Sultan Qaboos University, Muscat, Oman</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&#169; 2026 STM – Student Task Management. COMP3700 course project.</span>
+      <span>Built with HTML5 &amp; pure CSS3</span>
+    </div>
+  </footer>
+</body>
+</html>
