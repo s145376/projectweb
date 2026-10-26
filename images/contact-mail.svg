@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-labelledby="t"><title id="t">Illustration of an envelope with a message bubble</title>
+  <ellipse cx="160" cy="222" rx="120" ry="10" fill="#0B3170" fill-opacity="0.12"/>
+  <rect x="50" y="70" width="200" height="136" rx="16" fill="#0B3170"/>
+  <path d="M50 86l100 70 100-70" fill="none" stroke="#2474E5" stroke-width="10" stroke-linejoin="round"/>
+  <rect x="160" y="18" width="140" height="74" rx="18" fill="#ffffff" stroke="#C9D6EC" stroke-width="3"/>
+  <path d="M190 92l-6 20 24-20z" fill="#ffffff" stroke="#C9D6EC" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="180" y="38" width="96" height="10" rx="5" fill="#94ADD3"/><rect x="180" y="58" width="64" height="10" rx="5" fill="#2474E5"/>
+</svg>
