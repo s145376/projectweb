@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Set semester and weekly goals and track progress and daily habits." />
+  <meta name="keywords" content="student task management, STM, assignments, deadlines, study planner, SQU" />
+  <meta name="author" content="Abdulrhman Khalfan Al-Degheishi, Hamed Hilal Al-Shekaili" />
+  <title>Goals | STM – Student Task Management</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <!-- 1) EXTERNAL CSS: shared by every page (logo, navigation, layout, footer) -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <!-- 2) INTERNAL (document-level) CSS: rules used only on this page -->
+  <style>
+    .goal-progress {
+      min-width: 150px;
+    }
+
+    .goal-progress .progress {
+      margin-bottom: 4px;
+    }
+
+    .habit-table td {
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .habit-table td.yes {
+      color: #1F9D6B;
+      font-weight: 700;
+      background-color: #E3F5EC;
+    }
+
+    .habit-table td.no {
+      color: #D4363C;
+      background-color: #FCE7E8;
+    }
+
+    .habit-table td.future {
+      color: #94ADD3;
+    }
+
+    ol.tips-list {
+      list-style-type: upper-roman;
+      margin-left: 1.6em;
+    }
+
+    ol.tips-list li {
+      margin-bottom: 6px;
+    }
+
+    blockquote.quote p {
+      margin: 0;
+    }
+
+    blockquote.quote {
+      font-family: "Poppins", Arial, sans-serif;
+      font-size: 1.1rem;
+      color: #0B3170;
+      border-left: 5px solid #2474E5;
+      padding: 6px 0 6px 16px;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <!-- ===== Uniform header with logo (same on all pages) ===== -->
+  <header id="site-header">
+    <div class="container header-inner">
+      <a class="logo-link" href="../index.html" title="STM home">
+        <img src="../images/logo.png" alt="STM – Student Task Management logo" width="360" height="243" />
+      </a>
+      <div class="header-actions">
+        <span class="today-chip">Fall 2026 Semester</span>
+        <a class="btn btn-small" href="login.html">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Uniform navigation menu ===== -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a class="active" href="goals.html" aria-current="page">Goals</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="login.html">Login / Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="content">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="../index.html">Dashboard</a></li>
+          <li>Goals</li>
+        </ol>
+        <h1>Goals &amp; habits</h1>
+        <p>Turn big semester targets into weekly steps, then track daily habits so small wins add up.</p>
+      </div>
+    </section>
+
+    <div class="section-tight">
+      <div class="container grid-4">
+        <div class="card stat">
+          <span class="value">6</span>
+          <span class="label">Active goals</span>
+        </div>
+        <div class="card stat green">
+          <span class="value">2</span>
+          <span class="label">Goals reached this month</span>
+        </div>
+        <div class="card stat amber">
+          <span class="value">12 days</span>
+          <span class="label">Longest habit streak</span>
+        </div>
+        <div class="card stat">
+          <span class="value">1.5 tasks/day</span>
+          <span class="label">Completion velocity (last 7 days)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE 5: goals with progress (rowspan for goal type, colspan for the progress group) -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="card">
+          <h2>Current goals</h2>
+          <p>Progress bars show how close you are to each target.</p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th rowspan="2" scope="col">Type</th>
+                  <th rowspan="2" scope="col">Goal</th>
+                  <th rowspan="2" scope="col">Category</th>
+                  <th colspan="3" scope="colgroup">Progress</th>
+                </tr>
+                <tr>
+                  <th scope="col">Current</th>
+                  <th scope="col">Target</th>
+                  <th scope="col">Completion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th rowspan="3" scope="rowgroup">Semester</th>
+                  <td>Achieve a 3.5 semester GPA</td>
+                  <td>Academic</td>
+                  <td class="num">3.3</td>
+                  <td class="num">3.5</td>
+                  <td class="goal-progress"><div class="progress"><span style="width: 94%;"></span></div><span class="small muted">94%</span></td>
+                </tr>
+                <tr>
+                  <td>Submit every project on time</td>
+                  <td>Academic</td>
+                  <td class="num">5</td>
+                  <td class="num">8</td>
+                  <td class="goal-progress"><div class="progress"><span style="width: 63%;"></span></div><span class="small muted">63%</span></td>
+                </tr>
+                <tr>
+                  <td>Finish reading the Quran</td>
+                  <td>Religious</td>
+                  <td class="num">12 juz</td>
+                  <td class="num">30 juz</td>
+                  <td class="goal-progress"><div class="progress"><span style="width: 40%; background-color: #1F9D6B;"></span></div><span class="small muted">40%</span></td>
+                </tr>
+                <tr>
+                  <th rowspan="3" scope="rowgroup">Weekly</th>
+                  <td>Study 15 hours</td>
+                  <td>Academic</td>
+                  <td class="num">11 h</td>
+                  <td class="num">15 h</td>
+                  <td class="goal-progress"><div class="progress"><span style="width: 73%;"></span></div><span class="small muted">73%</span></td>
+                </tr>
+                <tr>
+                  <td>Solve 5 problem sets</td>
+                  <td>Academic</td>
+                  <td class="num">2</td>
+                  <td class="num">5</td>
+                  <td class="goal-progress"><div class="progress"><span style="width: 40%; background-color: #C98A0B;"></span></div><span class="small muted">40%</span></td>
+                </tr>
+                <tr>
+                  <td>Exercise 3 times</td>
+                  <td>Wellness</td>
+                  <td class="num">3</td>
+                  <td class="num">3</td>
+                  <td class="goal-progress"><div class="progress"><span style="width: 100%; background-color: #1F9D6B;"></span></div><span class="small muted">100% <span class="badge done">Reached</span></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLE: milestone log -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="card">
+          <h2>Milestone log</h2>
+          <p>Important steps you have reached toward your goals.</p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption>Goal milestones, newest first</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Goal</th>
+                  <th scope="col">Milestone</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="num">20 Oct</td>
+                  <td>Exercise 3 times</td>
+                  <td>Weekly target reached</td>
+                  <td><span class="badge done">Reached</span></td>
+                </tr>
+                <tr>
+                  <td class="num">15 Oct</td>
+                  <td>Submit every project on time</td>
+                  <td>Project Part I submitted</td>
+                  <td><span class="badge done">Reached</span></td>
+                </tr>
+                <tr>
+                  <td class="num">10 Oct</td>
+                  <td>Finish reading the Quran</td>
+                  <td>12 juz completed</td>
+                  <td><span class="badge done">Reached</span></td>
+                </tr>
+                <tr>
+                  <td class="num">26 Oct</td>
+                  <td>Submit every project on time</td>
+                  <td>Project Part II due</td>
+                  <td><span class="badge pending">Upcoming</span></td>
+                </tr>
+                <tr>
+                  <td class="num">15 Dec</td>
+                  <td>Achieve a 3.5 semester GPA</td>
+                  <td>Final exams begin</td>
+                  <td><span class="badge pending">Upcoming</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLE 6: habit tracker for this week -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="card">
+          <h2>Daily habit tracker</h2>
+          <p>Week of 18 – 24 October 2026. &#10003; = done, &#10007; = missed.</p>
+          <div class="table-wrap">
+            <table class="data-table habit-table">
+              <thead>
+                <tr>
+                  <th scope="col">Habit</th>
+                  <th scope="col">Sun</th>
+                  <th scope="col">Mon</th>
+                  <th scope="col">Tue</th>
+                  <th scope="col">Wed</th>
+                  <th scope="col">Thu</th>
+                  <th scope="col">Fri</th>
+                  <th scope="col">Sat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Pray on time</th>
+                  <td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="future">–</td><td class="future">–</td><td class="future">–</td><td class="future">–</td>
+                </tr>
+                <tr>
+                  <th scope="row">Review lecture notes</th>
+                  <td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="yes">&#10003;</td><td class="future">–</td><td class="future">–</td><td class="future">–</td><td class="future">–</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sleep before midnight</th>
+                  <td class="no">&#10007;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="future">–</td><td class="future">–</td><td class="future">–</td><td class="future">–</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th scope="row">Score</th>
+                  <td colspan="3" class="num">7 of 9 habits done (78%)</td>
+                  <td colspan="4" class="num">Rest of the week</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM: create a goal -->
+    <section class="section-tight">
+      <div class="container layout-main-side">
+        <div class="card">
+          <h2>Set a new goal</h2>
+          <p>Choose a semester target or a weekly one. Weekly goals reset every Sunday.</p>
+          <form action="https://httpbin.org/get" method="get" target="_blank">
+            <input type="hidden" name="form_name" value="new_goal" />
+            <fieldset>
+              <legend>Goal</legend>
+              <div class="form-grid">
+                <div class="form-row full">
+                  <label for="goal_title" class="required">Goal title</label>
+                  <input type="text" id="goal_title" name="goal_title" placeholder="e.g. Study 15 hours this week" required="required" />
+                </div>
+                <div class="form-row full">
+                  <span class="label">Goal type</span>
+                  <div class="choice-group">
+                    <label><input type="radio" name="goal_type" value="semester" /> Semester goal</label>
+                    <label><input type="radio" name="goal_type" value="weekly" checked="checked" /> Weekly goal</label>
+                    <label><input type="radio" name="goal_type" value="habit" /> Daily habit</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="goal_category">Category</label>
+                  <select id="goal_category" name="goal_category" size="4">
+                    <option value="academic" selected="selected">Academic</option>
+                    <option value="religious">Religious</option>
+                    <option value="wellness">Wellness</option>
+                    <option value="personal">Personal</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="goal_target">Target value</label>
+                  <input type="number" id="goal_target" name="goal_target" min="1" step="0.5" value="15" />
+                </div>
+                <div class="form-row">
+                  <label for="goal_unit">Unit</label>
+                  <select id="goal_unit" name="goal_unit">
+                    <option value="hours">Hours</option>
+                    <option value="tasks">Tasks</option>
+                    <option value="pages">Pages</option>
+                    <option value="gpa">GPA points</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="goal_deadline">Deadline</label>
+                  <input type="date" id="goal_deadline" name="goal_deadline" value="2026-10-31" />
+                </div>
+                <div class="form-row full">
+                  <label for="goal_importance">Importance (1 = low, 5 = very high)</label>
+                  <input type="range" id="goal_importance" name="goal_importance" min="1" max="5" step="1" value="3" />
+                </div>
+                <div class="form-row full">
+                  <label for="goal_reason">Why does this goal matter?</label>
+                  <textarea id="goal_reason" name="goal_reason" rows="3" cols="40" placeholder="Writing the reason down helps you stay motivated."></textarea>
+                </div>
+                <div class="form-row full">
+                  <div class="choice-group">
+                    <label><input type="checkbox" name="goal_show_dashboard" value="yes" checked="checked" /> Show on dashboard</label>
+                    <label><input type="checkbox" name="goal_weekly_review" value="yes" /> Remind me to review every Thursday</label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <input type="submit" value="Create goal" />
+              <input type="reset" value="Reset" />
+            </div>
+          </form>
+        </div>
+
+        <aside class="card">
+          <img src="../images/icon-goals.svg" alt="Target icon" width="56" height="56" style="float: right; margin-left: 0.5em; margin-bottom: 0.5em;" />
+          <h3>Tips for good goals</h3>
+          <ol type="I" class="tips-list">
+            <li><strong>Specific</strong> – "Study 15 hours", not "study more".</li>
+            <li><strong>Measurable</strong> – give it a number and a unit.</li>
+            <li><strong>Time-bound</strong> – always set a deadline.</li>
+            <li><strong>Balanced</strong> – mix academic, personal and wellness goals.</li>
+          </ol>
+          <blockquote class="quote"><p>Small daily steps beat <em>last-minute</em> marathons.</p></blockquote>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Uniform footer (same on all pages) ===== -->
+  <footer id="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="footer-logo" href="../index.html"><img src="../images/logo.png" alt="STM logo" width="360" height="243" /></a>
+        <p>STM helps students organise courses, deadlines, goals and personal commitments in one calm, distraction-free place.</p>
+      </div>
+      <div>
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="../index.html">Task Dashboard</a></li>
+          <li><a href="calendar.html">Academic Calendar</a></li>
+          <li><a href="courses.html">Course Manager</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="profile.html">Profile &amp; Settings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="aboutus.html">About the team</a></li>
+          <li><a href="contact.html">Contact form &amp; FAQ</a></li>
+          <li><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></li>
+          <li>Department of Computer Science, Sultan Qaboos University, Muscat, Oman</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&#169; 2026 STM – Student Task Management. COMP3700 course project.</span>
+      <span>Built with HTML5 &amp; pure CSS3</span>
+    </div>
+  </footer>
+</body>
+</html>

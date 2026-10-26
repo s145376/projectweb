@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Update your STM profile, notification lead times and quiet hours." />
+  <meta name="keywords" content="student task management, STM, assignments, deadlines, study planner, SQU" />
+  <meta name="author" content="Abdulrhman Khalfan Al-Degheishi, Hamed Hilal Al-Shekaili" />
+  <title>Profile &amp; Settings | STM – Student Task Management</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <!-- 1) EXTERNAL CSS: shared by every page (logo, navigation, layout, footer) -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <!-- 2) INTERNAL (document-level) CSS: rules used only on this page -->
+  <style>
+    .profile-card {
+      text-align: center;
+    }
+
+    .profile-card img {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 12px;
+      border: 4px solid #E6EEFB;
+      border-radius: 50%;
+    }
+
+    .profile-card dl {
+      text-align: left;
+      margin-top: 16px;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .profile-card dd {
+      margin-bottom: 8px;
+    }
+
+    .summary-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      border: 2px solid #0B3170;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 18px;
+    }
+
+    .summary-table th,
+    .summary-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #D9E2F0;
+      text-align: left;
+    }
+
+    .summary-table thead th {
+      background-color: #0B3170;
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    .summary-table td {
+      text-align: right;
+      font-weight: 600;
+      color: #0B3170;
+    }
+
+    .summary-table tr:last-child th,
+    .summary-table tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <!-- ===== Uniform header with logo (same on all pages) ===== -->
+  <header id="site-header">
+    <div class="container header-inner">
+      <a class="logo-link" href="../index.html" title="STM home">
+        <img src="../images/logo.png" alt="STM – Student Task Management logo" width="360" height="243" />
+      </a>
+      <div class="header-actions">
+        <span class="today-chip">Fall 2026 Semester</span>
+        <a class="btn btn-small" href="login.html">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Uniform navigation menu ===== -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a class="active" href="profile.html" aria-current="page">Profile</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="login.html">Login / Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="content">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="../index.html">Dashboard</a></li>
+          <li>Profile &amp; Settings</li>
+        </ol>
+        <h1>Profile &amp; settings</h1>
+        <p>Update how STM shows your name, how and when it reminds you, and when it stays quiet.</p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container layout-side-main">
+
+        <!-- Profile summary -->
+        <aside class="card profile-card">
+          <img src="../images/icon-profile.svg" alt="Default student profile picture" width="110" height="110" />
+          <h2 style="margin-bottom: 2px;">Hamed</h2>
+          <p class="muted small">Computer Science student &#183; Member since Sep 2026</p>
+          <dl class="info-list">
+            <dt>Display name</dt><dd>Hamed</dd>
+            <dt>E-mail</dt><dd>s145376@student.squ.edu.om</dd>
+            <dt>Semester</dt><dd>Fall 2026</dd>
+            <dt>Reminders</dt><dd>24 h before</dd>
+          </dl>
+
+          <!-- TABLE 7: account summary (colspan header) -->
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th colspan="2" scope="colgroup">Account summary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Tasks completed</th><td>24</td></tr>
+              <tr><th scope="row">Open tasks</th><td>9</td></tr>
+              <tr><th scope="row">Active courses</th><td>4</td></tr>
+              <tr><th scope="row">Active goals</th><td>6</td></tr>
+            </tbody>
+          </table>
+        </aside>
+
+        <!-- FORM: profile and notification settings -->
+        <div class="card">
+          <h2>Edit profile</h2>
+          <p>Only a display name is needed – STM never asks for your full legal name.</p>
+          <p class="note">Demo form: submitted data is sent to <strong>httpbin.org</strong> for testing only.</p>
+          <form action="https://httpbin.org/get" method="get" target="_blank">
+            <input type="hidden" name="form_name" value="profile_settings" />
+
+            <fieldset>
+              <legend>Personal details</legend>
+              <div class="form-grid">
+                <div class="form-row">
+                  <label for="display_name" class="required">Display name</label>
+                  <input type="text" id="display_name" name="display_name" value="Hamed" maxlength="100" required="required" />
+                </div>
+                <div class="form-row">
+                  <label for="profile_email" class="required">E-mail</label>
+                  <input type="email" id="profile_email" name="profile_email" value="s145376@student.squ.edu.om" required="required" />
+                </div>
+                <div class="form-row">
+                  <label for="profile_phone">Mobile (for SMS alerts)</label>
+                  <input type="tel" id="profile_phone" name="profile_phone" placeholder="+968 9X XX XX XX" pattern="\+?[0-9 ]{8,15}" />
+                </div>
+                <div class="form-row">
+                  <label for="profile_major">Major</label>
+                  <select id="profile_major" name="profile_major">
+                    <option value="cs" selected="selected">Computer Science</option>
+                    <option value="ce">Computer Engineering</option>
+                    <option value="it">Information Technology</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-row full">
+                  <label for="profile_photo">Profile picture</label>
+                  <input type="file" id="profile_photo" name="profile_photo" accept="image/png, image/jpeg" />
+                  <span class="hint">PNG or JPG, up to 2 MB.</span>
+                </div>
+                <div class="form-row full">
+                  <label for="profile_bio">Short bio</label>
+                  <textarea id="profile_bio" name="profile_bio" rows="2" placeholder="e.g. Third-year CS student who loves game development"></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset id="notifications">
+              <legend>Notifications</legend>
+              <div class="form-grid">
+                <div class="form-row full">
+                  <span class="label">Remind me before a deadline</span>
+                  <div class="choice-group">
+                    <label><input type="radio" name="reminder_lead" value="2h" /> 2 hours</label>
+                    <label><input type="radio" name="reminder_lead" value="24h" checked="checked" /> 24 hours</label>
+                    <label><input type="radio" name="reminder_lead" value="48h" /> 2 days</label>
+                    <label><input type="radio" name="reminder_lead" value="1w" /> 1 week</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="notify_channels">Channels (hold Ctrl to pick several)</label>
+                  <select id="notify_channels" name="notify_channels" multiple="multiple">
+                    <option value="browser" selected="selected">Browser notification</option>
+                    <option value="email" selected="selected">E-mail</option>
+                    <option value="sms">SMS</option>
+                    <option value="digest">Daily digest</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <span class="label">Notify me about</span>
+                  <div class="choice-group" style="flex-direction: column;">
+                    <label><input type="checkbox" name="notify_about" value="deadlines" checked="checked" /> Deadlines</label>
+                    <label><input type="checkbox" name="notify_about" value="exams" checked="checked" /> Exams</label>
+                    <label><input type="checkbox" name="notify_about" value="goals" /> Goal check-ins</label>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="quiet_from">Quiet hours from</label>
+                  <input type="time" id="quiet_from" name="quiet_from" value="23:00" />
+                </div>
+                <div class="form-row">
+                  <label for="quiet_to">Quiet hours until</label>
+                  <input type="time" id="quiet_to" name="quiet_to" value="06:30" />
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Appearance &amp; security</legend>
+              <div class="form-grid">
+                <div class="form-row">
+                  <label for="accent_color">Accent colour</label>
+                  <input type="color" id="accent_color" name="accent_color" value="#2474e5" />
+                </div>
+                <div class="form-row">
+                  <label for="week_start">Week starts on</label>
+                  <select id="week_start" name="week_start">
+                    <option value="sunday" selected="selected">Sunday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="monday">Monday</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="current_password">Current password</label>
+                  <input type="password" id="current_password" name="current_password" autocomplete="current-password" />
+                </div>
+                <div class="form-row">
+                  <label for="new_password">New password</label>
+                  <input type="password" id="new_password" name="new_password" minlength="8" autocomplete="new-password" placeholder="At least 8 characters" />
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <input type="submit" value="Save changes" />
+              <input type="reset" value="Undo changes" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Uniform footer (same on all pages) ===== -->
+  <footer id="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="footer-logo" href="../index.html"><img src="../images/logo.png" alt="STM logo" width="360" height="243" /></a>
+        <p>STM helps students organise courses, deadlines, goals and personal commitments in one calm, distraction-free place.</p>
+      </div>
+      <div>
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="../index.html">Task Dashboard</a></li>
+          <li><a href="calendar.html">Academic Calendar</a></li>
+          <li><a href="courses.html">Course Manager</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="profile.html">Profile &amp; Settings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="aboutus.html">About the team</a></li>
+          <li><a href="contact.html">Contact form &amp; FAQ</a></li>
+          <li><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></li>
+          <li>Department of Computer Science, Sultan Qaboos University, Muscat, Oman</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&#169; 2026 STM – Student Task Management. COMP3700 course project.</span>
+      <span>Built with HTML5 &amp; pure CSS3</span>
+    </div>
+  </footer>
+</body>
+</html>

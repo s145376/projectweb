@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Log in to STM or create a free student account." />
+  <meta name="keywords" content="student task management, STM, assignments, deadlines, study planner, SQU" />
+  <meta name="author" content="Abdulrhman Khalfan Al-Degheishi, Hamed Hilal Al-Shekaili" />
+  <title>Login &amp; Sign Up | STM – Student Task Management</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <!-- 1) EXTERNAL CSS: shared by every page (logo, navigation, layout, footer) -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <!-- 2) INTERNAL (document-level) CSS: rules used only on this page -->
+  <style>
+    .auth-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.3fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .auth-card h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .auth-card h2 img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .or-line {
+      text-align: center;
+      color: #5B6880;
+      font-size: 0.85rem;
+      margin: 18px 0;
+      position: relative;
+    }
+
+
+    @media (max-width: 960px) {
+      .auth-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <!-- ===== Uniform header with logo (same on all pages) ===== -->
+  <header id="site-header">
+    <div class="container header-inner">
+      <a class="logo-link" href="../index.html" title="STM home">
+        <img src="../images/logo.png" alt="STM – Student Task Management logo" width="360" height="243" />
+      </a>
+      <div class="header-actions">
+        <span class="today-chip">Fall 2026 Semester</span>
+        <a class="btn btn-small" href="login.html">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Uniform navigation menu ===== -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a class="active" href="login.html" aria-current="page">Login / Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="content">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="../index.html">Home</a></li>
+          <li>Login / Sign Up</li>
+        </ol>
+        <h1>Welcome to STM</h1>
+        <p>Log in to see today's tasks, or create a free account in less than a minute.</p>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="auth-grid">
+
+          <!-- FORM: log in -->
+          <div class="card auth-card" id="login">
+            <h2><img src="../images/icon-tasks.svg" alt="" width="40" height="40" /> Log in</h2>
+            <form action="https://httpbin.org/get" method="get" target="_blank">
+              <input type="hidden" name="form_name" value="login" />
+              <div class="form-row">
+                <label for="login_email" class="required">E-mail</label>
+                <input type="email" id="login_email" name="login_email" placeholder="you@student.squ.edu.om" autocomplete="username" required="required" />
+              </div>
+              <div class="form-row">
+                <label for="login_password" class="required">Password</label>
+                <input type="password" id="login_password" name="login_password" autocomplete="current-password" required="required" />
+              </div>
+              <div class="form-row">
+                <label style="font-weight: 400;"><input type="checkbox" name="remember_me" value="yes" /> Keep me logged in on this device</label>
+              </div>
+              <div class="form-actions">
+                <input type="submit" value="Log in" style="width: 100%;" />
+              </div>
+            </form>
+            <p class="or-line">or</p>
+            <p class="small text-center">Forgot your password? See the <a href="contact.html#faq">FAQ</a> or <a href="contact.html">contact us</a>.</p>
+          </div>
+
+          <!-- FORM: sign up -->
+          <div class="card auth-card" id="signup">
+            <h2><img src="../images/icon-profile.svg" alt="" width="40" height="40" /> Create an account</h2>
+            <p>We only need a display name – a nickname or first name is fine.</p>
+            <form action="https://httpbin.org/get" method="get" target="_blank">
+              <input type="hidden" name="form_name" value="signup" />
+              <fieldset>
+                <legend>Account</legend>
+                <div class="form-grid">
+                  <div class="form-row">
+                    <label for="signup_name" class="required">Display name</label>
+                    <input type="text" id="signup_name" name="signup_name" placeholder="e.g. Hamed" size="20" maxlength="100" required="required" />
+                  </div>
+                  <div class="form-row">
+                    <label for="signup_email" class="required">E-mail</label>
+                    <input type="email" id="signup_email" name="signup_email" placeholder="you@student.squ.edu.om" required="required" />
+                  </div>
+                  <div class="form-row">
+                    <label for="signup_password" class="required">Password</label>
+                    <input type="password" id="signup_password" name="signup_password" minlength="8" placeholder="At least 8 characters" autocomplete="new-password" required="required" />
+                  </div>
+                  <div class="form-row">
+                    <label for="signup_password2" class="required">Confirm password</label>
+                    <input type="password" id="signup_password2" name="signup_password_confirm" minlength="8" autocomplete="new-password" required="required" />
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Study profile</legend>
+                <div class="form-grid">
+                  <div class="form-row">
+                    <label for="signup_university">University</label>
+                    <select id="signup_university" name="signup_university">
+                      <option value="squ" selected="selected">Sultan Qaboos University</option>
+                      <option value="utas">University of Technology and Applied Sciences</option>
+                      <option value="gutech">German University of Technology in Oman</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="form-row">
+                    <label for="signup_graduation">Expected graduation</label>
+                    <input type="month" id="signup_graduation" name="signup_graduation" value="2028-06" />
+                  </div>
+                  <div class="form-row full">
+                    <span class="label">Study level</span>
+                    <div class="choice-group">
+                      <label><input type="radio" name="signup_level" value="foundation" /> Foundation</label>
+                      <label><input type="radio" name="signup_level" value="undergraduate" checked="checked" /> Undergraduate</label>
+                      <label><input type="radio" name="signup_level" value="postgraduate" /> Postgraduate</label>
+                    </div>
+                  </div>
+                  <div class="form-row full">
+                    <span class="label">I want to use STM for</span>
+                    <div class="choice-group">
+                      <label><input type="checkbox" name="signup_use" value="courses" checked="checked" /> Course tasks</label>
+                      <label><input type="checkbox" name="signup_use" value="exams" checked="checked" /> Exams</label>
+                      <label><input type="checkbox" name="signup_use" value="group_projects" /> Group projects</label>
+                      <label><input type="checkbox" name="signup_use" value="personal" /> Personal &amp; religious tasks</label>
+                    </div>
+                  </div>
+                  <div class="form-row full">
+                    <label style="font-weight: 400;"><input type="checkbox" name="signup_terms" value="accepted" required="required" /> I agree to the STM terms and privacy policy</label>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="form-actions">
+                <input type="submit" value="Create account" />
+                <input type="reset" value="Clear form" />
+                <button type="button" class="btn-outline" title="Name checking will be added with JavaScript in Part 3">Check display name</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Uniform footer (same on all pages) ===== -->
+  <footer id="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="footer-logo" href="../index.html"><img src="../images/logo.png" alt="STM logo" width="360" height="243" /></a>
+        <p>STM helps students organise courses, deadlines, goals and personal commitments in one calm, distraction-free place.</p>
+      </div>
+      <div>
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="../index.html">Task Dashboard</a></li>
+          <li><a href="calendar.html">Academic Calendar</a></li>
+          <li><a href="courses.html">Course Manager</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="profile.html">Profile &amp; Settings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="aboutus.html">About the team</a></li>
+          <li><a href="contact.html">Contact form &amp; FAQ</a></li>
+          <li><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></li>
+          <li>Department of Computer Science, Sultan Qaboos University, Muscat, Oman</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&#169; 2026 STM – Student Task Management. COMP3700 course project.</span>
+      <span>Built with HTML5 &amp; pure CSS3</span>
+    </div>
+  </footer>
+</body>
+</html>

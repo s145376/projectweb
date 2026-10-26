@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The mission behind STM and the team that built it." />
+  <meta name="keywords" content="student task management, STM, assignments, deadlines, study planner, SQU" />
+  <meta name="author" content="Abdulrhman Khalfan Al-Degheishi, Hamed Hilal Al-Shekaili" />
+  <title>About Us | STM – Student Task Management</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <!-- 1) EXTERNAL CSS: shared by every page (logo, navigation, layout, footer) -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <!-- 2) INTERNAL (document-level) CSS: rules used only on this page -->
+  <style>
+    .compare-table td.yes {
+      color: #1F9D6B;
+      font-weight: 600;
+    }
+
+    .compare-table td.part {
+      color: #C98A0B;
+    }
+
+    .compare-table td.stm-col {
+      background-color: #E6EEFB;
+      color: #0B3170;
+      font-weight: 600;
+    }
+
+    .compare-table thead th.stm-col {
+      background-color: #2474E5;
+      color: #FFFFFF;
+      font-size: 1rem;
+    }
+
+    .team-card h3 {
+      margin-bottom: 2px;
+    }
+
+    .team-card .role {
+      color: #2474E5;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <!-- ===== Uniform header with logo (same on all pages) ===== -->
+  <header id="site-header">
+    <div class="container header-inner">
+      <a class="logo-link" href="../index.html" title="STM home">
+        <img src="../images/logo.png" alt="STM – Student Task Management logo" width="360" height="243" />
+      </a>
+      <div class="header-actions">
+        <span class="today-chip">Fall 2026 Semester</span>
+        <a class="btn btn-small" href="login.html">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Uniform navigation menu ===== -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="../index.html">Dashboard</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a class="active" href="aboutus.html" aria-current="page">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="login.html">Login / Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="content">
+    <section class="page-hero">
+      <div class="container split">
+        <div>
+          <ol class="breadcrumb">
+            <li><a href="../index.html">Home</a></li>
+            <li>About Us</li>
+          </ol>
+          <h1>About STM</h1>
+          <p>STM – Student Task Management is a web platform that helps every student organise academic work and personal commitments in one calm, distraction-free place.</p>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="login.html">Create a free account</a>
+            <a class="btn btn-outline" href="login.html#login" style="color: #FFFFFF; border-color: #94ADD3;">Log in</a>
+          </div>
+        </div>
+        <img class="hero-art" src="../images/study-team.svg" alt="Illustration of books, a clock and a checklist" width="420" height="300" />
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section">
+      <div class="container split" style="align-items: start;">
+        <div class="mission">
+          <h2>Our mission</h2>
+          <p>Students often juggle four or five courses at once, each with different assignment formats, quizzes and project deadlines. Paper planners and scattered note apps make it easy to miss a short homework or forget an exam date. STM brings everything together: tasks are organised by semester and course, the dashboard shows only what matters today, and progress bars turn hard work into visible results.</p>
+          <p>We also believe student life is <em>more than coursework</em>. STM gives the same attention to religious commitments, wellness and club activities, so students can balance their values and their studies without switching between apps.</p>
+        </div>
+        <div class="card">
+          <h3>What STM offers</h3>
+          <ul class="check-list">
+            <li>Academic and general workspaces</li>
+            <li>Create, edit and delete tasks with deadlines and priorities</li>
+            <li>A "Focus today" list for daily priorities</li>
+            <li>Deadline reminders with lead times you choose</li>
+            <li>Clear completed / not-completed status tracking</li>
+            <li>A colour-coded month calendar and weekly timetable</li>
+            <li>Semester and weekly goals with progress bars</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="container"><hr class="divider" /></div>
+
+    <!-- How it works -->
+    <section class="section-tight">
+      <div class="container">
+        <h2>How it works</h2>
+        <p>Getting organised takes about five minutes.</p>
+        <ol class="steps-list">
+          <li><strong>Sign up</strong> with your e-mail and a display name.</li>
+          <li><strong>Create your semester</strong> and add your courses with colour tags.</li>
+          <li><strong>Add tasks</strong> – assignments, exams, projects or personal tasks – with due dates.</li>
+          <li><strong>Check "Focus today"</strong> each morning and tick tasks off as you finish them.</li>
+          <li><strong>Review your goals</strong> every week and adjust your plan.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TABLE 8: comparison with similar websites -->
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <h2>How STM compares</h2>
+          <p>We studied two popular platforms while designing STM.</p>
+          <div class="table-wrap">
+            <table class="data-table compare-table">
+              <thead>
+                <tr>
+                  <th rowspan="2" scope="col">Feature</th>
+                  <th colspan="2" scope="colgroup">Existing platforms</th>
+                  <th rowspan="2" scope="col" class="stm-col">STM</th>
+                </tr>
+                <tr>
+                  <th scope="col">MyStudyLife</th>
+                  <th scope="col">Todoist</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Built for students</th>
+                  <td class="yes">Yes</td>
+                  <td class="part">General audience</td>
+                  <td class="stm-col">Yes – all majors and levels</td>
+                </tr>
+                <tr>
+                  <th scope="row">Course-based organisation</th>
+                  <td class="yes">Yes</td>
+                  <td class="part">Via projects</td>
+                  <td class="stm-col">Semester → course → task</td>
+                </tr>
+                <tr>
+                  <th scope="row">Daily focus view</th>
+                  <td class="part">Partial</td>
+                  <td class="yes">"Today" view</td>
+                  <td class="stm-col">"Focus today" list</td>
+                </tr>
+                <tr>
+                  <th scope="row">Semester &amp; weekly goals</th>
+                  <td colspan="2" class="part" style="text-align: center;">Limited or paid feature</td>
+                  <td class="stm-col">Built in and free</td>
+                </tr>
+                <tr>
+                  <th scope="row">Personal &amp; religious tasks</th>
+                  <td class="part">Not the focus</td>
+                  <td class="yes">Yes</td>
+                  <td class="stm-col">Dedicated general workspace</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team with e-mail links -->
+    <section class="section-tight" id="team">
+      <div class="container">
+        <h2>Meet the team</h2>
+        <p>STM is the COMP3700 Introduction to Web Computing term project (Fall 2026) at the Department of Computer Science, Sultan Qaboos University.</p>
+        <div class="grid-2">
+          <article class="card team-card">
+            <img src="../images/avatar-abdulrhman.svg" alt="Avatar with the initials AD" width="84" height="84" />
+            <div>
+              <h3>Abdulrhman Khalfan Al-Degheishi</h3>
+              <p class="role">Student ID 143052 &#183; Front-end &amp; content</p>
+              <p class="small muted">Designed the dashboard, calendar and courses pages, the task and timetable tables, and the shared navigation and footer.</p>
+              <p class="small"><a href="mailto:s143052@student.squ.edu.om?subject=STM%20website%20enquiry">s143052@student.squ.edu.om</a></p>
+            </div>
+          </article>
+          <article class="card team-card">
+            <img src="../images/avatar-hamed.svg" alt="Avatar with the initials HS" width="84" height="84" />
+            <div>
+              <h3>Hamed Hilal Al-Shekaili</h3>
+              <p class="role">Student ID 145376 &#183; Styling &amp; forms</p>
+              <p class="small muted">Built the external style sheet and responsive layout, the login, goals, profile and contact forms, and the About Us page.</p>
+              <p class="small"><a href="mailto:s145376@student.squ.edu.om?subject=STM%20website%20enquiry">s145376@student.squ.edu.om</a></p>
+            </div>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top: 22px;">
+          <h3>Contact details</h3>
+          <dl class="info-list">
+            <dt>General enquiries</dt>
+            <dd><a href="mailto:s145376@student.squ.edu.om?cc=s143052@student.squ.edu.om&amp;subject=STM%20support%20request&amp;body=Hello%20STM%20team%2C%20I%20want%20to%20ask%20about...%20">E-mail the STM team</a> – we reply within two working days.</dd>
+            <dt>Instructor</dt>
+            <dd>Dr. Ahmed Soleimani, COMP3700 – Introduction to Web Computing</dd>
+            <dt>Address</dt>
+            <dd>Department of Computer Science, College of Science, Sultan Qaboos University, Al-Khoudh, Muscat, Oman</dd>
+            <dt>Office hours</dt>
+            <dd>Sunday – Thursday, 9:00 AM – 2:00 PM</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Ready to get organised?</h2>
+            <p>Create your free account and add your first task in under a minute.</p>
+          </div>
+          <a class="btn btn-light" href="login.html">Sign up now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Uniform footer (same on all pages) ===== -->
+  <footer id="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="footer-logo" href="../index.html"><img src="../images/logo.png" alt="STM logo" width="360" height="243" /></a>
+        <p>STM helps students organise courses, deadlines, goals and personal commitments in one calm, distraction-free place.</p>
+      </div>
+      <div>
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="../index.html">Task Dashboard</a></li>
+          <li><a href="calendar.html">Academic Calendar</a></li>
+          <li><a href="courses.html">Course Manager</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="profile.html">Profile &amp; Settings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="aboutus.html">About the team</a></li>
+          <li><a href="contact.html">Contact form &amp; FAQ</a></li>
+          <li><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></li>
+          <li>Department of Computer Science, Sultan Qaboos University, Muscat, Oman</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&#169; 2026 STM – Student Task Management. COMP3700 course project.</span>
+      <span>Built with HTML5 &amp; pure CSS3</span>
+    </div>
+  </footer>
+</body>
+</html>
