@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Your STM home: today's focus, every task in one table and a quick way to add new ones." />
+  <meta name="keywords" content="student task management, STM, assignments, deadlines, study planner, SQU" />
+  <meta name="author" content="Abdulrhman Khalfan Al-Degheishi, Hamed Hilal Al-Shekaili" />
+  <title>Task Dashboard | STM – Student Task Management</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <!-- 1) EXTERNAL CSS: shared by every page (logo, navigation, layout, footer) -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!-- 2) INTERNAL (document-level) CSS: rules used only on this page -->
+  <style>
+    .focus-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px dashed #D9E2F0;
+    }
+
+    .focus-list li:last-child {
+      border-bottom: none;
+    }
+
+    .focus-list time {
+      font-size: 0.82rem;
+      color: #5B6880;
+      white-space: nowrap;
+    }
+
+    .filter-bar {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr 1fr auto;
+      gap: 14px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .filter-bar .form-row {
+      margin-bottom: 0;
+    }
+
+    .goal-line {
+      margin-bottom: 14px;
+    }
+
+    .goal-line .goal-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 960px) {
+      .filter-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+    @media (max-width: 680px) {
+      .filter-bar {
+        grid-template-columns: 1fr;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <!-- ===== Uniform header with logo (same on all pages) ===== -->
+  <header id="site-header">
+    <div class="container header-inner">
+      <a class="logo-link" href="index.html" title="STM home">
+        <img src="images/logo.png" alt="STM – Student Task Management logo" width="360" height="243" />
+      </a>
+      <div class="header-actions">
+        <span class="today-chip">Fall 2026 Semester</span>
+        <a class="btn btn-small" href="pages/login.html">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Uniform navigation menu ===== -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a class="active" href="index.html" aria-current="page">Dashboard</a></li>
+        <li><a href="pages/calendar.html">Calendar</a></li>
+        <li><a href="pages/courses.html">Courses</a></li>
+        <li><a href="pages/goals.html">Goals</a></li>
+        <li><a href="pages/profile.html">Profile</a></li>
+        <li><a href="pages/aboutus.html">About Us</a></li>
+        <li><a href="pages/contact.html">Contact Us</a></li>
+        <li><a href="pages/login.html">Login / Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="content">
+    <!-- ===== Hero ===== -->
+    <section class="page-hero home-hero">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">Fall 2026 &#183; Week 9</span>
+          <h1>Plan less. Finish more.</h1>
+          <p>Welcome to <strong>STM – Student Task Management</strong>. Every assignment, exam, project and personal commitment lives here, sorted by course and due date, so you always know what to do next.</p>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="#quick-add">+ Add a task</a>
+            <a class="btn btn-outline" href="pages/calendar.html" style="color: #FFFFFF; border-color: #94ADD3;">Open calendar</a>
+          </div>
+        </div>
+        <img class="hero-art" src="images/hero-planner.svg" alt="Illustration of a student planner board with a checklist, calendar and progress chart" width="520" height="400" />
+      </div>
+    </section>
+
+    <!-- ===== Summary statistics ===== -->
+    <div class="section-tight">
+      <div class="container grid-4">
+        <div class="card stat">
+          <span class="value">3</span>
+          <span class="label">Tasks due today</span>
+        </div>
+        <div class="card stat amber">
+          <span class="value">9</span>
+          <span class="label">Due in the next 7 days</span>
+        </div>
+        <div class="card stat green">
+          <span class="value">24</span>
+          <span class="label">Completed this semester</span>
+        </div>
+        <div class="card stat red">
+          <span class="value">1</span>
+          <span class="label">Overdue task</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Task feed with filters and Table 1 ===== -->
+    <section class="section-tight" id="tasks">
+      <div class="container">
+        <div class="card">
+          <div class="card-header">
+            <h2>My tasks</h2>
+            <a class="btn btn-small btn-outline" href="#quick-add">+ New task</a>
+          </div>
+
+          <!-- FORM: task filters (status, timeframe, workspace) -->
+          <form class="filter-bar" action="https://httpbin.org/get" method="get" target="_blank">
+            <div class="form-row">
+              <label for="filter_status">Status</label>
+              <select id="filter_status" name="filter_status">
+                <option value="all">All tasks</option>
+                <option value="not_completed" selected="selected">Not completed</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="filter_timeframe">Timeframe</label>
+              <select id="filter_timeframe" name="filter_timeframe">
+                <option value="today" selected="selected">Today</option>
+                <option value="7_days">Next 7 days</option>
+                <option value="15_days">Next 15 days</option>
+                <option value="30_days">Next 30 days</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="filter_workspace">Workspace</label>
+              <select id="filter_workspace" name="filter_workspace">
+                <option value="all">All workspaces</option>
+                <option value="general">General / Personal</option>
+                <optgroup label="Academic – Fall 2026">
+                  <option value="web_computing">Web Computing</option>
+                  <option value="intelligent_systems">Intelligent Systems</option>
+                  <option value="databases">Database Systems</option>
+                  <option value="calculus">Calculus II</option>
+                </optgroup>
+              </select>
+            </div>
+            <input type="submit" value="Apply filters" />
+          </form>
+
+          <!-- TABLE 1: task list (rowspan groups by workspace, colspan headings) -->
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption>Tasks for Fall 2026, grouped by workspace</caption>
+              <thead>
+                <tr>
+                  <th rowspan="2" scope="col">Workspace</th>
+                  <th colspan="2" scope="colgroup">Task details</th>
+                  <th colspan="2" scope="colgroup">Deadline</th>
+                  <th colspan="2" scope="colgroup">Tracking</th>
+                </tr>
+                <tr>
+                  <th scope="col">Task</th>
+                  <th scope="col">Course / Category</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Priority</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th rowspan="8" scope="rowgroup">Academic</th>
+                  <td class="task-title">Term project Part II – static website</td>
+                  <td><span class="dot" style="background-color: #2474E5;"></span>Web Computing</td>
+                  <td class="num">26 Oct</td>
+                  <td class="num">11:59 PM</td>
+                  <td><span class="badge high">High</span></td>
+                  <td><span class="badge pending">In progress</span></td>
+                </tr>
+                <tr>
+                  <td class="task-title">Quiz 3 – search algorithms</td>
+                  <td><span class="dot" style="background-color: #1F9D6B;"></span>Intelligent Systems</td>
+                  <td class="num">21 Oct</td>
+                  <td class="num">10:00 AM</td>
+                  <td><span class="badge high">High</span></td>
+                  <td><span class="badge pending">Not completed</span></td>
+                </tr>
+                <tr>
+                  <td class="task-title">ER diagram – rental system</td>
+                  <td><span class="dot" style="background-color: #C98A0B;"></span>Database Systems</td>
+                  <td class="num">28 Oct</td>
+                  <td class="num">5:00 PM</td>
+                  <td><span class="badge medium">Medium</span></td>
+                  <td><span class="badge pending">Not completed</span></td>
+                </tr>
+                <tr>
+                  <td class="task-title">Problem set 6</td>
+                  <td><span class="dot" style="background-color: #D4363C;"></span>Calculus II</td>
+                  <td class="num">19 Oct</td>
+                  <td class="num">8:00 AM</td>
+                  <td><span class="badge medium">Medium</span></td>
+                  <td><span class="badge overdue">Overdue</span></td>
+                </tr>
+                <tr class="row-done">
+                  <td class="task-title">Project Part I – game README</td>
+                  <td><span class="dot" style="background-color: #1F9D6B;"></span>Intelligent Systems</td>
+                  <td class="num">15 Oct</td>
+                  <td class="num">11:59 PM</td>
+                  <td><span class="badge low">Low</span></td>
+                  <td><span class="badge done">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="task-title">Lab 4 – SQL joins</td>
+                  <td><span class="dot" style="background-color: #C98A0B;"></span>Database Systems</td>
+                  <td class="num">30 Oct</td>
+                  <td class="num">2:00 PM</td>
+                  <td><span class="badge medium">Medium</span></td>
+                  <td><span class="badge pending">Not completed</span></td>
+                </tr>
+                <tr>
+                  <td class="task-title">Midterm revision – integrals</td>
+                  <td><span class="dot" style="background-color: #D4363C;"></span>Calculus II</td>
+                  <td class="num">27 Oct</td>
+                  <td class="num">9:00 AM</td>
+                  <td><span class="badge high">High</span></td>
+                  <td><span class="badge pending">In progress</span></td>
+                </tr>
+                <tr>
+                  <td class="task-title">Read chapter 7 – knowledge representation</td>
+                  <td><span class="dot" style="background-color: #1F9D6B;"></span>Intelligent Systems</td>
+                  <td class="num">1 Nov</td>
+                  <td class="num">8:00 PM</td>
+                  <td><span class="badge low">Low</span></td>
+                  <td><span class="badge pending">Not completed</span></td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th rowspan="5" scope="rowgroup">General</th>
+                  <td class="task-title">Read Quran – 1 juz</td>
+                  <td>Religious</td>
+                  <td class="num">21 Oct</td>
+                  <td class="num">9:00 PM</td>
+                  <td><span class="badge medium">Medium</span></td>
+                  <td><span class="badge pending">Not completed</span></td>
+                </tr>
+                <tr class="row-done">
+                  <td class="task-title">Gym session</td>
+                  <td>Wellness</td>
+                  <td class="num">20 Oct</td>
+                  <td class="num">6:00 PM</td>
+                  <td><span class="badge low">Low</span></td>
+                  <td><span class="badge done">Completed</span></td>
+                </tr>
+                <tr class="row-done">
+                  <td class="task-title">Computer club meeting</td>
+                  <td>Club activity</td>
+                  <td class="num">18 Oct</td>
+                  <td class="num">1:00 PM</td>
+                  <td><span class="badge low">Low</span></td>
+                  <td><span class="badge done">Completed</span></td>
+                </tr>
+                <tr>
+                  <td class="task-title">Call family</td>
+                  <td>Personal</td>
+                  <td class="num">22 Oct</td>
+                  <td class="num">7:00 PM</td>
+                  <td><span class="badge low">Low</span></td>
+                  <td><span class="badge pending">Not completed</span></td>
+                </tr>
+                <tr class="row-done">
+                  <td class="task-title">Pay mobile bill</td>
+                  <td>Personal</td>
+                  <td class="num">20 Oct</td>
+                  <td class="num">12:00 PM</td>
+                  <td><span class="badge medium">Medium</span></td>
+                  <td><span class="badge done">Completed</span></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th scope="row">Summary</th>
+                  <td colspan="4">13 tasks shown &#183; 8 academic, 5 general</td>
+                  <td colspan="2" class="num">4 of 13 completed (31%)</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Quick add + Focus today ===== -->
+    <section class="section-tight">
+      <div class="container layout-main-side">
+
+        <!-- FORM: quick-add task -->
+        <div class="card" id="quick-add">
+          <h2>Quick add a task</h2>
+          <p>Add an assignment, exam or personal task. It will appear in your feed and on the calendar.</p>
+          <form action="https://httpbin.org/get" method="get" target="_blank">
+            <input type="hidden" name="form_name" value="quick_add_task" />
+            <fieldset>
+              <legend>Task details</legend>
+              <div class="form-grid">
+                <div class="form-row full">
+                  <label for="task_title" class="required">Task title</label>
+                  <input type="text" id="task_title" name="task_title" placeholder="e.g. Lab report 4" size="40" maxlength="150" required="required" />
+                </div>
+                <div class="form-row">
+                  <label for="task_workspace">Workspace / Course</label>
+                  <select id="task_workspace" name="task_workspace">
+                    <optgroup label="General">
+                      <option value="general_personal">Personal</option>
+                      <option value="general_religious">Religious</option>
+                      <option value="general_wellness">Wellness</option>
+                    </optgroup>
+                    <optgroup label="Academic – Fall 2026">
+                      <option value="web_computing" selected="selected">Web Computing</option>
+                      <option value="intelligent_systems">Intelligent Systems</option>
+                      <option value="databases">Database Systems</option>
+                      <option value="calculus">Calculus II</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="task_type">Task type</label>
+                  <select id="task_type" name="task_type">
+                    <option value="assignment">Assignment</option>
+                    <option value="exam">Exam / Quiz</option>
+                    <option value="project">Project</option>
+                    <option value="personal">Personal task</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="task_due_date" class="required">Due date</label>
+                  <input type="date" id="task_due_date" name="task_due_date" value="2026-10-26" required="required" />
+                </div>
+                <div class="form-row">
+                  <label for="task_due_time">Due time</label>
+                  <input type="time" id="task_due_time" name="task_due_time" value="23:59" />
+                </div>
+                <div class="form-row full">
+                  <span class="label">Priority</span>
+                  <div class="choice-group">
+                    <label><input type="radio" name="task_priority" value="high" /> High</label>
+                    <label><input type="radio" name="task_priority" value="medium" checked="checked" /> Medium</label>
+                    <label><input type="radio" name="task_priority" value="low" /> Low</label>
+                  </div>
+                </div>
+                <div class="form-row full">
+                  <label for="task_hours">Estimated effort (hours): 1 – 10</label>
+                  <input type="range" id="task_hours" name="task_hours" min="1" max="10" value="3" />
+                </div>
+                <div class="form-row full">
+                  <label for="task_notes">Notes</label>
+                  <textarea id="task_notes" name="task_notes" rows="3" cols="40" placeholder="Requirements, links, group members..."></textarea>
+                </div>
+                <div class="form-row full">
+                  <label for="task_attachment">Attachment (optional)</label>
+                  <input type="file" id="task_attachment" name="task_attachment" accept=".pdf,.docx,.png,.jpg" />
+                </div>
+                <div class="form-row full">
+                  <span class="label">Reminders</span>
+                  <div class="choice-group">
+                    <label><input type="checkbox" name="task_reminder" value="24h" checked="checked" /> 24 hours before</label>
+                    <label><input type="checkbox" name="task_reminder" value="2h" /> 2 hours before</label>
+                    <label><input type="checkbox" name="task_reminder" value="email" /> Also by e-mail</label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <input type="submit" value="Save task" />
+              <input type="reset" value="Clear" />
+              <input type="button" value="Save as draft" class="btn-outline" title="Draft saving will be connected with JavaScript in Part 3" />
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <!-- Focus today -->
+          <div class="card">
+            <div class="card-header">
+              <h2>Focus today</h2>
+              <span class="badge pending">Wed 21 Oct</span>
+            </div>
+            <ol class="focus-list" style="list-style: none;">
+              <li><span><strong>Quiz 3</strong> – Intelligent Systems</span><time datetime="2026-10-21T10:00">10:00 AM</time></li>
+              <li><span><strong>Finish contact page</strong> – Web Computing</span><time datetime="2026-10-21T16:00">4:00 PM</time></li>
+              <li><span><strong>Read Quran – 1 juz</strong> – Religious</span><time datetime="2026-10-21T21:00">9:00 PM</time></li>
+            </ol>
+          </div>
+
+          <!-- Weekly goals snapshot (bar widths use INLINE CSS) -->
+          <div class="card" style="margin-top: 22px;">
+            <div class="card-header">
+              <h3>This week's goals</h3>
+              <a href="pages/goals.html">All goals</a>
+            </div>
+            <div class="goal-line">
+              <div class="goal-head"><span>Study 15 hours</span><span>11 / 15 h</span></div>
+              <div class="progress"><span style="width: 73%;"></span></div>
+            </div>
+            <div class="goal-line">
+              <div class="goal-head"><span>Solve 5 problem sets</span><span>2 / 5</span></div>
+              <div class="progress"><span style="width: 40%; background-color: #C98A0B;"></span></div>
+            </div>
+            <div class="goal-line">
+              <div class="goal-head"><span>Exercise 3 times</span><span>3 / 3</span></div>
+              <div class="progress"><span style="width: 100%; background-color: #1F9D6B;"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Explore STM ===== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center">Everything in one place</h2>
+        <p class="text-center muted">Jump to any part of STM.</p>
+        <div class="grid-3" style="margin-top: 24px;">
+          <a class="card feature-card" href="pages/calendar.html" style="color: inherit; text-decoration: none;">
+            <img src="images/icon-calendar.svg" alt="" width="56" height="56" />
+            <h3>Academic calendar</h3>
+            <p class="small muted">See deadlines, exams and personal events on a month grid and your weekly class timetable.</p>
+          </a>
+          <a class="card feature-card" href="pages/courses.html" style="color: inherit; text-decoration: none;">
+            <img src="images/icon-courses.svg" alt="" width="56" height="56" />
+            <h3>Courses &amp; semesters</h3>
+            <p class="small muted">Organise Fall 2026 into courses with colours and instructors so every task has a home.</p>
+          </a>
+          <a class="card feature-card" href="pages/goals.html" style="color: inherit; text-decoration: none;">
+            <img src="images/icon-goals.svg" alt="" width="56" height="56" />
+            <h3>Goals &amp; habits</h3>
+            <p class="small muted">Set semester and weekly targets and watch your progress bars fill up.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Uniform footer (same on all pages) ===== -->
+  <footer id="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="footer-logo" href="index.html"><img src="images/logo.png" alt="STM logo" width="360" height="243" /></a>
+        <p>STM helps students organise courses, deadlines, goals and personal commitments in one calm, distraction-free place.</p>
+      </div>
+      <div>
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="index.html">Task Dashboard</a></li>
+          <li><a href="pages/calendar.html">Academic Calendar</a></li>
+          <li><a href="pages/courses.html">Course Manager</a></li>
+          <li><a href="pages/goals.html">Goals</a></li>
+          <li><a href="pages/profile.html">Profile &amp; Settings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="pages/aboutus.html">About the team</a></li>
+          <li><a href="pages/contact.html">Contact form &amp; FAQ</a></li>
+          <li><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></li>
+          <li>Department of Computer Science, Sultan Qaboos University, Muscat, Oman</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&#169; 2026 STM – Student Task Management. COMP3700 course project.</span>
+      <span>Built with HTML5 &amp; pure CSS3</span>
+    </div>
+  </footer>
+</body>
+</html>
