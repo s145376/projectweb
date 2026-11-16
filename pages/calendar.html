@@ -1,336 +1,179 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Month calendar of deadlines, exams and personal events plus the weekly class timetable." />
-  <meta name="keywords" content="student task management, STM, assignments, deadlines, study planner, SQU" />
-  <meta name="author" content="Abdulrhman Khalfan Al-Degheishi, Hamed Hilal Al-Shekaili" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Academic Calendar | STM – Student Task Management</title>
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
-  <!-- 1) EXTERNAL CSS: shared by every page (logo, navigation, layout, footer) -->
-  <link rel="stylesheet" type="text/css" href="../css/style.css" />
-  <!-- 2) INTERNAL (document-level) CSS: rules used only on this page -->
-  <style>
-    .cal-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .cal-toolbar form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: end;
-      width: auto;
-    }
-
-    .cal-toolbar .form-row {
-      margin-bottom: 0;
-    }
-
-    .view-switch {
-      display: flex;
-      border: 1.5px solid #C5D1E6;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .calendar-bottom {
-      grid-template-columns: 1fr;
-    }
-
-    .view-switch label {
-      margin: 0;
-      padding: 8px 14px;
-      font-weight: 500;
-      cursor: pointer;
-      border-right: 1px solid #C5D1E6;
-    }
-
-    .view-switch label:last-child {
-      border-right: none;
-    }
-
-    .view-switch input {
-      position: absolute;
-      opacity: 0;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to main content</a>
-
-  <!-- ===== Uniform header with logo (same on all pages) ===== -->
-  <header id="site-header">
-    <div class="container header-inner">
-      <a class="logo-link" href="../index.html" title="STM home">
-        <img src="../images/logo.png" alt="STM – Student Task Management logo" width="360" height="243" />
-      </a>
-      <div class="header-actions">
-        <span class="today-chip">Fall 2026 Semester</span>
-        <a class="btn btn-small" href="login.html">Log in</a>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="STM logo" height="40" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="calendar.html">Calendar</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="goals.html">Goals</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="questionnaire.html">Feedback (Questionnaire)</a></li>
+              <li><a class="dropdown-item" href="calculate.html">Study Calculator</a></li>
+              <li><a class="dropdown-item" href="funpage.html">Fun Page</a></li>
+              <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+              <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+        </ul>
+        <span class="badge rounded-pill text-bg-light border me-lg-3 mb-2 mb-lg-0">Fall 2026 Semester</span>
+        <a class="btn btn-primary" href="login.html">Login / Sign Up</a>
       </div>
+    </div>
+  </nav>
+  <header class="bg-primary text-white py-4">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-1">
+          <li class="breadcrumb-item"><a class="link-light" href="../index.html">Home</a></li>
+          <li class="breadcrumb-item active text-white" aria-current="page">Calendar</li>
+        </ol>
+      </nav>
+      <h1 class="display-6 fw-bold">Academic Calendar</h1>
+      <p class="lead mb-0">All deadlines, exams, project milestones and personal events for the month, colour-coded by type, plus your weekly class timetable.</p>
     </div>
   </header>
 
-  <!-- ===== Uniform navigation menu ===== -->
-  <nav id="main-nav" aria-label="Main navigation">
-    <div class="container">
-      <ul class="nav-links">
-        <li><a href="../index.html">Dashboard</a></li>
-        <li><a class="active" href="calendar.html" aria-current="page">Calendar</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="goals.html">Goals</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="login.html">Login / Sign Up</a></li>
+  <main class="container my-4">
+    <section class="mb-5">
+      <div class="card shadow-sm"><div class="card-body">
+        <h2 class="h3">October 2026</h2>
+        <form id="calendarViewForm" class="needs-validation row g-3 align-items-end" action="https://httpbin.org/get" method="get" target="_blank" novalidate="novalidate">
+  <input type="hidden" name="form_name" value="calendar_view" />
+  <div class="col-md-4">
+    <div class="form-label">View</div>
+    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="cal_view" id="cal_view_day" value="day" /><label class="form-check-label" for="cal_view_day">Day</label></div>
+    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="cal_view" id="cal_view_week" value="week" /><label class="form-check-label" for="cal_view_week">Week</label></div>
+    <div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="cal_view" id="cal_view_month" value="month" checked="checked" /><label class="form-check-label" for="cal_view_month">Month</label></div>
+  </div>
+  <div class="col-md-3">
+    <label for="cal_month" class="form-label">Month</label>
+    <input type="month" class="form-control" id="cal_month" name="cal_month" value="2026-10" required="required" />
+    <div class="invalid-feedback">Please choose a month.</div>
+  </div>
+  <div class="col-md-3">
+    <label for="cal_week" class="form-label">Week</label>
+    <input type="week" class="form-control" id="cal_week" name="cal_week" value="2026-W43" required="required" />
+    <div class="invalid-feedback">Please choose a week.</div>
+  </div>
+  <div class="col-md-2"><button type="submit" class="btn btn-primary w-100">Show</button></div>
+</form>
+      </div></div>
+      <div class="mt-3"><div class="table-responsive">
+  <table class="table table-bordered align-top">
+    <caption class="caption-top">Calendar for October 2026</caption>
+    <thead class="table-primary text-center">
+      <tr><th scope="col">Sun</th><th scope="col">Mon</th><th scope="col">Tue</th><th scope="col">Wed</th><th scope="col">Thu</th><th scope="col">Fri</th><th scope="col">Sat</th></tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="4" class="table-light text-muted small">End of September</td><td><span class="fw-semibold small">1</span><span class="badge text-bg-success d-block text-start text-wrap mt-1">Club fair</span></td><td class="table-light"><span class="fw-semibold small">2</span></td><td class="table-light"><span class="fw-semibold small">3</span><span class="badge text-bg-success d-block text-start text-wrap mt-1">Family visit</span></td></tr>
+<tr><td><span class="fw-semibold small">4</span><span class="badge text-bg-primary d-block text-start text-wrap mt-1">DB Part I proposal</span></td><td><span class="fw-semibold small">5</span></td><td><span class="fw-semibold small">6</span><span class="badge text-bg-danger d-block text-start text-wrap mt-1">Calculus quiz 2</span></td><td><span class="fw-semibold small">7</span></td><td><span class="fw-semibold small">8</span><span class="badge text-bg-dark d-block text-start text-wrap mt-1">Web Part I due</span></td><td class="table-light"><span class="fw-semibold small">9</span></td><td class="table-light"><span class="fw-semibold small">10</span></td></tr>
+<tr><td><span class="fw-semibold small">11</span></td><td><span class="fw-semibold small">12</span><span class="badge text-bg-primary d-block text-start text-wrap mt-1">Lab report 3</span></td><td><span class="fw-semibold small">13</span></td><td><span class="fw-semibold small">14</span><span class="badge text-bg-danger d-block text-start text-wrap mt-1">AI quiz 2</span></td><td><span class="fw-semibold small">15</span><span class="badge text-bg-dark d-block text-start text-wrap mt-1">Game Part I due</span></td><td class="table-light"><span class="fw-semibold small">16</span></td><td class="table-light"><span class="fw-semibold small">17</span><span class="badge text-bg-success d-block text-start text-wrap mt-1">Gym</span></td></tr>
+<tr><td><span class="fw-semibold small">18</span><span class="badge text-bg-success d-block text-start text-wrap mt-1">Club meeting</span></td><td><span class="fw-semibold small">19</span><span class="badge text-bg-primary d-block text-start text-wrap mt-1">Problem set 6</span></td><td><span class="fw-semibold small">20</span><span class="badge text-bg-success d-block text-start text-wrap mt-1">Gym</span></td><td class="table-info"><span class="fw-semibold small">21 · Today</span><span class="badge text-bg-danger d-block text-start text-wrap mt-1">AI quiz 3</span><span class="badge text-bg-success d-block text-start text-wrap mt-1">Read Quran</span></td><td><span class="fw-semibold small">22</span></td><td class="table-light"><span class="fw-semibold small">23</span></td><td class="table-light"><span class="fw-semibold small">24</span></td></tr>
+<tr><td><span class="fw-semibold small">25</span></td><td><span class="fw-semibold small">26</span><span class="badge text-bg-dark d-block text-start text-wrap mt-1">Web Part II due</span></td><td colspan="3" class="table-warning"><span class="fw-semibold small">27 – 29</span><span class="d-block"><strong>Midterm exams week</strong></span><span class="small">Calculus II · Database Systems</span></td><td class="table-light"><span class="fw-semibold small">30</span></td><td class="table-light"><span class="fw-semibold small">31</span></td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="7" class="small text-muted">14 events this month · 4 exams · 4 project deadlines · 6 personal events</td></tr>
+    </tfoot>
+  </table>
+</div></div>
+      <ul class="list-inline small">
+        <li class="list-inline-item"><span class="badge text-bg-primary">Assignment</span></li>
+        <li class="list-inline-item"><span class="badge text-bg-danger">Exam / quiz</span></li>
+        <li class="list-inline-item"><span class="badge text-bg-dark">Project</span></li>
+        <li class="list-inline-item"><span class="badge text-bg-success">Personal / religious</span></li>
+        <li class="list-inline-item"><span class="badge text-bg-warning">Multi-day period</span></li>
       </ul>
-    </div>
-  </nav>
-
-  <main id="content">
-    <section class="page-hero">
-      <div class="container">
-        <ol class="breadcrumb">
-          <li><a href="../index.html">Dashboard</a></li>
-          <li>Calendar</li>
-        </ol>
-        <h1>Academic calendar</h1>
-        <p>All deadlines, exams, project milestones and personal events for the month, colour-coded by type, plus your weekly class timetable.</p>
-      </div>
     </section>
 
-    <section class="section-tight">
-      <div class="container">
-        <div class="card">
-          <div class="cal-toolbar">
-            <h2 style="margin-bottom: 0;">October 2026</h2>
-
-            <!-- FORM: choose the calendar view and period -->
-            <form action="https://httpbin.org/get" method="get" target="_blank">
-              <input type="hidden" name="form_name" value="calendar_view" />
-              <div class="form-row">
-                <span class="label">View</span>
-                <div class="view-switch">
-                  <label><input type="radio" name="cal_view" value="day" /><span>Day</span></label>
-                  <label><input type="radio" name="cal_view" value="week" /><span>Week</span></label>
-                  <label><input type="radio" name="cal_view" value="month" checked="checked" /><span>Month</span></label>
-                </div>
-              </div>
-              <div class="form-row">
-                <label for="cal_month">Month</label>
-                <input type="month" id="cal_month" name="cal_month" value="2026-10" />
-              </div>
-              <div class="form-row">
-                <label for="cal_week">Week</label>
-                <input type="week" id="cal_week" name="cal_week" value="2026-W43" />
-              </div>
-              <input type="submit" value="Show" />
-            </form>
-          </div>
-
-          <!-- TABLE 2: month calendar (separated cells, colspan for empty days and multi-day events) -->
-          <div class="table-wrap">
-            <table class="calendar-table">
-              <caption class="muted small">Sunday to Thursday are class days; Friday and Saturday are the weekend.</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Sun</th>
-                  <th scope="col">Mon</th>
-                  <th scope="col">Tue</th>
-                  <th scope="col">Wed</th>
-                  <th scope="col">Thu</th>
-                  <th scope="col" class="weekend">Fri</th>
-                  <th scope="col" class="weekend">Sat</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td colspan="4" class="empty"><span class="muted small">End of September</span></td>
-                  <td><span class="day-num">1</span><span class="event personal">Club fair</span></td>
-                  <td class="weekend"><span class="day-num">2</span></td>
-                  <td class="weekend"><span class="day-num">3</span><span class="event personal">Family visit</span></td>
-                </tr>
-                <tr>
-                  <td><span class="day-num">4</span><span class="event">DB Part I proposal</span></td>
-                  <td><span class="day-num">5</span></td>
-                  <td><span class="day-num">6</span><span class="event exam">Calculus quiz 2</span></td>
-                  <td><span class="day-num">7</span></td>
-                  <td><span class="day-num">8</span><span class="event project">Web Part I due</span></td>
-                  <td class="weekend"><span class="day-num">9</span></td>
-                  <td class="weekend"><span class="day-num">10</span></td>
-                </tr>
-                <tr>
-                  <td><span class="day-num">11</span></td>
-                  <td><span class="day-num">12</span><span class="event">Lab report 3</span></td>
-                  <td><span class="day-num">13</span></td>
-                  <td><span class="day-num">14</span><span class="event exam">AI quiz 2</span></td>
-                  <td><span class="day-num">15</span><span class="event project">Game Part I due</span></td>
-                  <td class="weekend"><span class="day-num">16</span></td>
-                  <td class="weekend"><span class="day-num">17</span><span class="event personal">Gym</span></td>
-                </tr>
-                <tr>
-                  <td><span class="day-num">18</span><span class="event personal">Club meeting</span></td>
-                  <td><span class="day-num">19</span><span class="event">Problem set 6</span></td>
-                  <td><span class="day-num">20</span><span class="event personal">Gym</span></td>
-                  <td class="today"><span class="day-num">21 &#183; Today</span><span class="event exam">AI quiz 3</span><span class="event personal">Read Quran</span></td>
-                  <td><span class="day-num">22</span></td>
-                  <td class="weekend"><span class="day-num">23</span></td>
-                  <td class="weekend"><span class="day-num">24</span></td>
-                </tr>
-                <tr>
-                  <td><span class="day-num">25</span></td>
-                  <td><span class="day-num">26</span><span class="event project">Web Part II due</span></td>
-                  <td colspan="3" class="event-span"><span class="day-num">27 – 29</span><strong>Midterm exams week</strong><br /><span class="small">Calculus II &#183; Database Systems</span></td>
-                  <td class="weekend"><span class="day-num">30</span></td>
-                  <td class="weekend"><span class="day-num">31</span></td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="7" class="small muted" style="height: auto; text-align: center;">14 events this month &#183; 4 exams &#183; 4 project deadlines &#183; 6 personal events</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-
-          <ul class="legend">
-            <li><span class="dot" style="background-color: #2474E5;"></span>Assignment</li>
-            <li><span class="dot" style="background-color: #D4363C;"></span>Exam / quiz</li>
-            <li><span class="dot" style="background-color: #0B3170;"></span>Project</li>
-            <li><span class="dot" style="background-color: #1F9D6B;"></span>Personal / religious</li>
-            <li><span class="dot" style="background-color: #C98A0B;"></span>Multi-day period</li>
-          </ul>
-        </div>
-      </div>
+    <section class="mb-5">
+      <h2 class="h3">Weekly class timetable</h2>
+      <p class="text-muted">Lectures and labs for Fall 2026. Two-hour labs span two rows.</p>
+      <div class="table-responsive">
+  <table class="table table-bordered text-center align-middle">
+    <caption class="caption-top">Weekly class timetable – Fall 2026</caption>
+    <thead class="table-primary">
+      <tr><th scope="col">Time</th><th scope="col">Sunday</th><th scope="col">Monday</th><th scope="col">Tuesday</th><th scope="col">Wednesday</th><th scope="col">Thursday</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">8:00 – 9:00</th><td class="table-danger">Calculus II</td><td></td><td class="table-danger">Calculus II</td><td></td><td class="table-danger">Calculus II</td></tr>
+      <tr><th scope="row">9:00 – 10:00</th><td class="table-primary">Web Computing</td><td rowspan="2" class="table-warning">Database Lab<br /><span class="small">Room 0021</span></td><td class="table-primary">Web Computing</td><td rowspan="2" class="table-success">AI Lab<br /><span class="small">Room 0034</span></td><td></td></tr>
+      <tr><th scope="row">10:00 – 11:00</th><td class="table-success">Intelligent Systems</td><td class="table-success">Intelligent Systems</td><td></td></tr>
+      <tr><th scope="row" class="table-secondary">11:00 – 13:00</th><td colspan="5" class="table-secondary">Lunch &amp; prayer break</td></tr>
+      <tr><th scope="row">13:00 – 14:00</th><td class="table-warning">Database Systems</td><td></td><td class="table-warning">Database Systems</td><td rowspan="2" class="table-primary">Web Lab<br /><span class="small">Room 0102</span></td><td></td></tr>
+      <tr><th scope="row">14:00 – 15:00</th><td></td><td class="table-light">Study group</td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</div>
     </section>
 
-    <section class="section-tight">
-      <div class="container layout-main-side calendar-bottom">
-        <div class="card timetable-card">
-          <h2>Weekly class timetable</h2>
-          <p>Lectures and labs for Fall 2026. Two-hour labs span two rows.</p>
-
-          <!-- TABLE 3: weekly timetable (rowspan for labs, colspan for the break row, colgroup colouring) -->
-          <div class="table-wrap">
-            <table class="timetable">
-              <colgroup>
-                <col />
-                <col />
-                <col class="weekday-alt" />
-                <col />
-                <col class="weekday-alt" />
-                <col />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th scope="col">Time</th>
-                  <th scope="col">Sunday</th>
-                  <th scope="col">Monday</th>
-                  <th scope="col">Tuesday</th>
-                  <th scope="col">Wednesday</th>
-                  <th scope="col">Thursday</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">8:00 – 9:00</th>
-                  <td class="class-cell" style="background-color: #D4363C;">Calculus II</td>
-                  <td></td>
-                  <td class="class-cell" style="background-color: #D4363C;">Calculus II</td>
-                  <td></td>
-                  <td class="class-cell" style="background-color: #D4363C;">Calculus II</td>
-                </tr>
-                <tr>
-                  <th scope="row">9:00 – 10:00</th>
-                  <td class="class-cell" style="background-color: #2474E5;">Web Computing</td>
-                  <td rowspan="2" class="class-cell" style="background-color: #C98A0B;">Database Lab<br /><span class="small">Room 0021</span></td>
-                  <td class="class-cell" style="background-color: #2474E5;">Web Computing</td>
-                  <td rowspan="2" class="class-cell" style="background-color: #1F9D6B;">AI Lab<br /><span class="small">Room 0034</span></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">10:00 – 11:00</th>
-                  <td class="class-cell" style="background-color: #1F9D6B;">Intelligent Systems</td>
-                  <td class="class-cell" style="background-color: #1F9D6B;">Intelligent Systems</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td colspan="6" class="break-row">Lunch &amp; prayer break &#183; 11:00 – 13:00</td>
-                </tr>
-                <tr>
-                  <th scope="row">13:00 – 14:00</th>
-                  <td class="class-cell" style="background-color: #C98A0B;">Database Systems</td>
-                  <td></td>
-                  <td class="class-cell" style="background-color: #C98A0B;">Database Systems</td>
-                  <td rowspan="2" class="class-cell" style="background-color: #2474E5;">Web Lab<br /><span class="small">Room 0102</span></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">14:00 – 15:00</th>
-                  <td></td>
-                  <td class="class-cell" style="background-color: #0B3170;">Study group</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Upcoming deadlines</h2>
-          <p>Sorted by date – nearest first.</p>
-          <ol class="deadline-list steps-list" style="list-style-position: inside;">
-            <li><strong>Web Part II</strong> – Mon 26 Oct, 11:59 PM <span class="badge high">High</span></li>
-            <li><strong>Calculus midterm</strong> – Tue 27 Oct <span class="badge high">High</span></li>
-            <li><strong>ER diagram</strong> – Wed 28 Oct, 5:00 PM <span class="badge medium">Medium</span></li>
-            <li><strong>Database midterm</strong> – Thu 29 Oct <span class="badge high">High</span></li>
+    <section class="mb-4">
+      <div class="row align-items-center g-3">
+        <div class="col-md-8">
+          <h2 class="h3">Upcoming deadlines</h2>
+          <p class="text-muted">Sorted by date – nearest first.</p>
+          <ol class="list-group list-group-numbered">
+            <li class="list-group-item d-flex justify-content-between align-items-start"><span class="ms-2 me-auto">Web Part II – Mon 26 Oct, 11:59 PM</span><span class="badge text-bg-danger">High</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-start"><span class="ms-2 me-auto">Calculus midterm – Tue 27 Oct</span><span class="badge text-bg-danger">High</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-start"><span class="ms-2 me-auto">ER diagram – Wed 28 Oct, 5:00 PM</span><span class="badge text-bg-warning">Medium</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-start"><span class="ms-2 me-auto">Database midterm – Thu 29 Oct</span><span class="badge text-bg-danger">High</span></li>
           </ol>
-          <img src="../images/icon-bell.svg" alt="Reminder bell icon" width="56" height="56" style="margin-top: 12px;" />
-          <p class="small muted" style="margin-top: 8px;">Reminder lead times can be changed in <a href="profile.html#notifications">Profile &amp; Settings</a>.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <img src="../images/icon-bell.svg" alt="Bell icon" width="64" height="64" class="mb-2" />
+          <p class="text-muted">Reminder lead times can be changed in <a href="profile.html">Profile &amp; Settings</a>.</p>
         </div>
       </div>
     </section>
   </main>
-
-  <!-- ===== Uniform footer (same on all pages) ===== -->
-  <footer id="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="footer-logo" href="../index.html"><img src="../images/logo.png" alt="STM logo" width="360" height="243" /></a>
-        <p>STM helps students organise courses, deadlines, goals and personal commitments in one calm, distraction-free place.</p>
+  <footer class="bg-dark text-white mt-5 py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <img src="../images/logo.png" alt="STM logo" height="40" class="bg-white rounded p-1 mb-2" />
+          <p class="small text-white-50 mb-0">Student Task Management – COMP3700 term project, Sultan Qaboos University.</p>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h6">Quick links</h2>
+          <ul class="list-unstyled small mb-0">
+            <li><a class="link-light" href="../index.html">Dashboard</a></li>
+            <li><a class="link-light" href="calendar.html">Calendar</a></li>
+            <li><a class="link-light" href="courses.html">Courses</a></li>
+            <li><a class="link-light" href="goals.html">Goals</a></li>
+            <li><a class="link-light" href="questionnaire.html">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h6">Contact</h2>
+          <ul class="list-unstyled small mb-0">
+            <li>s143052@student.squ.edu.om</li>
+            <li>s145376@student.squ.edu.om</li>
+            <li>Muscat, Oman</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h2>Quick links</h2>
-        <ul>
-          <li><a href="../index.html">Task Dashboard</a></li>
-          <li><a href="calendar.html">Academic Calendar</a></li>
-          <li><a href="courses.html">Course Manager</a></li>
-          <li><a href="goals.html">Goals</a></li>
-          <li><a href="profile.html">Profile &amp; Settings</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Get in touch</h2>
-        <ul>
-          <li><a href="aboutus.html">About the team</a></li>
-          <li><a href="contact.html">Contact form &amp; FAQ</a></li>
-          <li><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></li>
-          <li>Department of Computer Science, Sultan Qaboos University, Muscat, Oman</li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>&#169; 2026 STM – Student Task Management. COMP3700 course project.</span>
-      <span>Built with HTML5 &amp; pure CSS3</span>
+      <hr class="border-secondary" />
+      <p class="text-center small text-white-50 mb-0">&#169; 2026 STM – Student Task Management</p>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="../js/validation.js"></script>
 </body>
 </html>
