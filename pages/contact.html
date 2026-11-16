@@ -1,212 +1,203 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Send the STM team a message and read answers to common questions." />
-  <meta name="keywords" content="student task management, STM, assignments, deadlines, study planner, SQU" />
-  <meta name="author" content="Abdulrhman Khalfan Al-Degheishi, Hamed Hilal Al-Shekaili" />
-  <title>Contact Us | STM – Student Task Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact us | STM – Student Task Management</title>
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
-  <!-- 1) EXTERNAL CSS: shared by every page (logo, navigation, layout, footer) -->
-  <link rel="stylesheet" type="text/css" href="../css/style.css" />
-  <!-- 2) INTERNAL (document-level) CSS: rules used only on this page -->
-  <style>
-    .contact-info li {
-      display: flex;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid #E8EEF7;
-    }
-
-    .contact-info li:last-child {
-      border-bottom: none;
-    }
-
-    .contact-info strong {
-      display: block;
-      color: #0B3170;
-    }
-
-    #faq h2 {
-      margin-bottom: 14px;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to main content</a>
-
-  <!-- ===== Uniform header with logo (same on all pages) ===== -->
-  <header id="site-header">
-    <div class="container header-inner">
-      <a class="logo-link" href="../index.html" title="STM home">
-        <img src="../images/logo.png" alt="STM – Student Task Management logo" width="360" height="243" />
-      </a>
-      <div class="header-actions">
-        <span class="today-chip">Fall 2026 Semester</span>
-        <a class="btn btn-small" href="login.html">Log in</a>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="STM logo" height="40" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="goals.html">Goals</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="questionnaire.html">Feedback (Questionnaire)</a></li>
+              <li><a class="dropdown-item" href="calculate.html">Study Calculator</a></li>
+              <li><a class="dropdown-item" href="funpage.html">Fun Page</a></li>
+              <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+              <li><a class="dropdown-item active" href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+        </ul>
+        <span class="badge rounded-pill text-bg-light border me-lg-3 mb-2 mb-lg-0">Fall 2026 Semester</span>
+        <a class="btn btn-primary" href="login.html">Login / Sign Up</a>
       </div>
+    </div>
+  </nav>
+  <header class="bg-primary text-white py-4">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-1">
+          <li class="breadcrumb-item"><a class="link-light" href="../index.html">Home</a></li>
+          <li class="breadcrumb-item active text-white" aria-current="page">Contact Us</li>
+        </ol>
+      </nav>
+      <h1 class="display-6 fw-bold">Contact us</h1>
+      <p class="lead mb-0">Questions, bug reports or ideas for new features? Send us a message – it goes straight to the STM team's inbox.</p>
     </div>
   </header>
 
-  <!-- ===== Uniform navigation menu ===== -->
-  <nav id="main-nav" aria-label="Main navigation">
-    <div class="container">
-      <ul class="nav-links">
-        <li><a href="../index.html">Dashboard</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="goals.html">Goals</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a class="active" href="contact.html" aria-current="page">Contact Us</a></li>
-        <li><a href="login.html">Login / Sign Up</a></li>
-      </ul>
+  <main class="container my-4">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="card shadow-sm"><div class="card-body">
+          <h2 class="h4">Send a message</h2>
+          <p class="text-muted">Submitting opens your e-mail program with the message ready to send.</p>
+          <form id="contactForm" class="needs-validation" action="mailto:s145376@student.squ.edu.om?subject=STM%20contact%20form" method="post" enctype="text/plain" novalidate="novalidate">
+  <input type="hidden" name="form_name" value="contactForm" />
+  <div class="row g-3">
+<div class="col-12"><h3 class="h6 text-primary border-bottom pb-1 mt-2 mb-0">Your details</h3></div>
+<div class="col-md-6">
+  <label for="contact_name" class="form-label">Display name</label>
+  <input type="text" class="form-control" id="contact_name" name="contact_name" required="required" placeholder="e.g. Hamed" />
+  <div class="invalid-feedback">Please enter your name.</div>
+</div>
+<div class="col-md-6">
+  <label for="contact_email" class="form-label">E-mail</label>
+  <input type="email" class="form-control" id="contact_email" name="contact_email" required="required" placeholder="you@student.squ.edu.om" />
+  <div class="invalid-feedback">Please enter a valid e-mail address.</div>
+</div>
+<div class="col-12"><h3 class="h6 text-primary border-bottom pb-1 mt-2 mb-0">Message</h3></div>
+<div class="col-md-6">
+  <label for="contact_subject" class="form-label">Subject</label>
+  <select class="form-select" id="contact_subject" name="contact_subject"><option value="general">General question</option><option value="technical">Technical problem</option><option value="feature">Feature request</option><option value="privacy">Data &amp; privacy</option></select>
+  <div class="invalid-feedback">Please choose an option.</div>
+</div>
+<div class="col-md-6">
+  <div class="form-label">Reply by</div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="contact_reply" id="contact_reply_email" value="email" checked="checked" />
+    <label class="form-check-label" for="contact_reply_email">E-mail</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="contact_reply" id="contact_reply_none" value="none" />
+    <label class="form-check-label" for="contact_reply_none">No reply needed</label>
+  </div>
+</div>
+<div class="col-12">
+  <label for="contact_message" class="form-label">Message</label>
+  <textarea class="form-control" id="contact_message" name="contact_message" rows="5" required="required" minlength="10" placeholder="Tell us how we can help..."></textarea>
+  <div class="invalid-feedback">Please write a message of at least 10 characters.</div>
+</div>
+<div class="col-12">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" name="contact_newsletter" id="contact_newsletter" value="yes" />
+    <label class="form-check-label" for="contact_newsletter">Send me news about new STM features</label>
+  </div>
+</div>
+  </div>
+  <div class="mt-4 d-flex flex-wrap gap-2">
+    <button type="submit" class="btn btn-primary">Send message</button>
+    <button type="reset" class="btn btn-outline-secondary">Clear</button>
+  </div>
+</form>
+        </div></div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card shadow-sm"><div class="card-body text-center">
+          <img src="../images/contact-mail.svg" class="img-fluid mb-3" alt="Mail illustration" />
+          <h2 class="h5">Other ways to reach us</h2>
+          <ul class="list-unstyled text-start mb-0">
+            <li><strong>E-mail:</strong> s145376@student.squ.edu.om</li>
+            <li><strong>Location:</strong> Department of Computer Science, Sultan Qaboos University, Muscat</li>
+            <li><strong>Response time:</strong> within two working days (Sunday – Thursday)</li>
+            <li><strong>Team:</strong> <a href="aboutus.html">Meet the people behind STM</a></li>
+          </ul>
+        </div></div>
+      </div>
     </div>
-  </nav>
 
-  <main id="content">
-    <section class="page-hero">
-      <div class="container">
-        <ol class="breadcrumb">
-          <li><a href="../index.html">Home</a></li>
-          <li>Contact Us</li>
-        </ol>
-        <h1>Contact us</h1>
-        <p>Questions, bug reports or ideas for new features? Send us a message – it goes straight to the STM team's inbox.</p>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="container layout-main-side">
-
-        <!-- CONTACT FORM: sends the form contents to an e-mail account -->
-        <div class="card">
-          <h2>Send a message</h2>
-          <p>Submitting opens your e-mail program with the message ready to send.</p>
-          <form action="mailto:s145376@student.squ.edu.om?subject=STM%20contact%20form" method="post" enctype="text/plain">
-            <fieldset>
-              <legend>Your details</legend>
-              <div class="form-grid">
-                <div class="form-row">
-                  <label for="contact_name" class="required">Display name</label>
-                  <input type="text" id="contact_name" name="contact_name" placeholder="e.g. Hamed" required="required" />
-                </div>
-                <div class="form-row">
-                  <label for="contact_email" class="required">E-mail</label>
-                  <input type="email" id="contact_email" name="contact_email" placeholder="you@student.squ.edu.om" required="required" />
-                </div>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Message</legend>
-              <div class="form-grid">
-                <div class="form-row">
-                  <label for="contact_subject">Subject</label>
-                  <select id="contact_subject" name="contact_subject">
-                    <option value="general">General question</option>
-                    <option value="technical">Technical problem</option>
-                    <option value="feature">Feature request</option>
-                    <option value="privacy">Data &amp; privacy</option>
-                  </select>
-                </div>
-                <div class="form-row">
-                  <span class="label">Preferred reply</span>
-                  <div class="choice-group">
-                    <label><input type="radio" name="contact_reply" value="email" checked="checked" /> E-mail</label>
-                    <label><input type="radio" name="contact_reply" value="none" /> No reply needed</label>
-                  </div>
-                </div>
-                <div class="form-row full">
-                  <label for="contact_message" class="required">Message</label>
-                  <textarea id="contact_message" name="contact_message" rows="6" cols="50" placeholder="Tell us how we can help..." required="required"></textarea>
-                </div>
-                <div class="form-row full">
-                  <label style="font-weight: 400;"><input type="checkbox" name="contact_newsletter" value="yes" /> Send me news about new STM features</label>
-                </div>
-              </div>
-            </fieldset>
-            <div class="form-actions">
-              <input type="submit" value="Send message" />
-              <input type="reset" value="Clear" />
-            </div>
-          </form>
-        </div>
-
-        <aside>
-          <div class="card">
-            <img src="../images/contact-mail.svg" alt="Illustration of an envelope and a message bubble" width="320" height="240" style="margin: 0 auto 10px; max-width: 220px;" />
-            <h3>Other ways to reach us</h3>
-            <ul class="contact-info" style="list-style: none;">
-              <li><span><strong>E-mail</strong><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></span></li>
-              <li><span><strong>Location</strong>Department of Computer Science, Sultan Qaboos University, Muscat</span></li>
-              <li><span><strong>Response time</strong>Within two working days (Sunday – Thursday)</span></li>
-              <li><span><strong>Team</strong><a href="aboutus.html#team">Meet the people behind STM</a></span></li>
-            </ul>
+    <section class="mt-5">
+      <h2 class="h3">Frequently asked questions</h2>
+      <div class="accordion" id="faqList">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">Is my data private?</button>
+          </h3>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqList">
+            <div class="accordion-body">Yes. STM only asks for a display name and an e-mail address. Passwords are stored as BCRYPT hashes and all traffic uses HTTPS.</div>
           </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- FAQ (details / summary – opens and closes without JavaScript) -->
-    <section class="section-tight" id="faq">
-      <div class="container">
-        <h2>Frequently asked questions</h2>
-        <details>
-          <summary>Is my data private?</summary>
-          <p>Yes. STM only asks for a display name and an e-mail address. Passwords are stored as BCRYPT hashes and all traffic uses HTTPS.</p>
-        </details>
-        <details>
-          <summary>How do I change when I get reminders?</summary>
-          <p>Go to <a href="profile.html#notifications">Profile &amp; Settings</a> and choose a lead time (2 hours to 1 week) and your quiet hours.</p>
-        </details>
-        <details>
-          <summary>I forgot my password. What should I do?</summary>
-          <p>Use the contact form above and choose "Technical problem". We will help you reset your password.</p>
-        </details>
-        <details>
-          <summary>Can I track tasks that are not related to a course?</summary>
-          <p>Yes. The General workspace is made for personal, religious, wellness and club tasks.</p>
-        </details>
-        <details>
-          <summary>Does STM cost anything?</summary>
-          <p>No. STM is free for all students.</p>
-        </details>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">How do I change when I get reminders?</button>
+          </h3>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqList">
+            <div class="accordion-body">Go to Profile &amp; Settings and choose a lead time (2 hours to 1 week) and your quiet hours.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">I forgot my password. What should I do?</button>
+          </h3>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqList">
+            <div class="accordion-body">Use the contact form above and choose "Technical problem". We will help you reset your password.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">Can I track tasks that are not related to a course?</button>
+          </h3>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqList">
+            <div class="accordion-body">Yes. The General workspace is made for personal, religious, wellness and club tasks.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">Does STM cost anything?</button>
+          </h3>
+          <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqList">
+            <div class="accordion-body">No. STM is free for all students.</div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
-
-  <!-- ===== Uniform footer (same on all pages) ===== -->
-  <footer id="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="footer-logo" href="../index.html"><img src="../images/logo.png" alt="STM logo" width="360" height="243" /></a>
-        <p>STM helps students organise courses, deadlines, goals and personal commitments in one calm, distraction-free place.</p>
+  <footer class="bg-dark text-white mt-5 py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <img src="../images/logo.png" alt="STM logo" height="40" class="bg-white rounded p-1 mb-2" />
+          <p class="small text-white-50 mb-0">Student Task Management – COMP3700 term project, Sultan Qaboos University.</p>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h6">Quick links</h2>
+          <ul class="list-unstyled small mb-0">
+            <li><a class="link-light" href="../index.html">Dashboard</a></li>
+            <li><a class="link-light" href="calendar.html">Calendar</a></li>
+            <li><a class="link-light" href="courses.html">Courses</a></li>
+            <li><a class="link-light" href="goals.html">Goals</a></li>
+            <li><a class="link-light" href="questionnaire.html">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h6">Contact</h2>
+          <ul class="list-unstyled small mb-0">
+            <li>s143052@student.squ.edu.om</li>
+            <li>s145376@student.squ.edu.om</li>
+            <li>Muscat, Oman</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h2>Quick links</h2>
-        <ul>
-          <li><a href="../index.html">Task Dashboard</a></li>
-          <li><a href="calendar.html">Academic Calendar</a></li>
-          <li><a href="courses.html">Course Manager</a></li>
-          <li><a href="goals.html">Goals</a></li>
-          <li><a href="profile.html">Profile &amp; Settings</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Get in touch</h2>
-        <ul>
-          <li><a href="aboutus.html">About the team</a></li>
-          <li><a href="contact.html">Contact form &amp; FAQ</a></li>
-          <li><a href="mailto:s145376@student.squ.edu.om">s145376@student.squ.edu.om</a></li>
-          <li>Department of Computer Science, Sultan Qaboos University, Muscat, Oman</li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>&#169; 2026 STM – Student Task Management. COMP3700 course project.</span>
-      <span>Built with HTML5 &amp; pure CSS3</span>
+      <hr class="border-secondary" />
+      <p class="text-center small text-white-50 mb-0">&#169; 2026 STM – Student Task Management</p>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="../js/validation.js"></script>
 </body>
 </html>
