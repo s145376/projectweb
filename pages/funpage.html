@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fun Page | STM – Student Task Management</title>
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="STM logo" height="40" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+          <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="goals.html">Goals</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="questionnaire.html">Feedback (Questionnaire)</a></li>
+              <li><a class="dropdown-item" href="calculate.html">Study Calculator</a></li>
+              <li><a class="dropdown-item active" href="funpage.html">Fun Page</a></li>
+              <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+              <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
+            </ul>
+          </li>
+        </ul>
+        <span class="badge rounded-pill text-bg-light border me-lg-3 mb-2 mb-lg-0">Fall 2026 Semester</span>
+        <a class="btn btn-primary" href="login.html">Login / Sign Up</a>
+      </div>
+    </div>
+  </nav>
+  <header class="bg-primary text-white py-4">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-1">
+          <li class="breadcrumb-item"><a class="link-light" href="../index.html">Home</a></li>
+          <li class="breadcrumb-item active text-white" aria-current="page">Fun Page</li>
+        </ol>
+      </nav>
+      <h1 class="display-6 fw-bold">Fun Page</h1>
+      <p class="lead mb-0">Take a short break and play: build study sentences from shuffled words.</p>
+    </div>
+  </header>
+
+  <main class="container my-4">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="card shadow-sm"><div class="card-body">
+          <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+            <h2 class="h4 mb-0">Sentence builder</h2>
+            <span class="badge text-bg-primary fs-6">Score: <span id="score">0</span> / <span id="rounds">0</span></span>
+          </div>
+          <p class="text-muted">Click the words in the right order to build a sentence about studying. Click a word in the answer box to put it back.</p>
+
+          <h3 class="h6">Your sentence</h3>
+          <div id="answerBox" class="border border-2 border-primary rounded p-3 mb-3 bg-light"></div>
+
+          <h3 class="h6">Words</h3>
+          <div id="wordPool" class="border rounded p-3 mb-3"></div>
+
+          <div id="gameMessage" class="alert alert-info" role="alert">Build the sentence, then press Check.</div>
+
+          <div class="d-flex flex-wrap gap-2">
+            <button type="button" class="btn btn-primary" id="checkButton">Check</button>
+            <button type="button" class="btn btn-outline-secondary" id="resetButton">Reset words</button>
+            <button type="button" class="btn btn-success" id="nextButton">Next sentence</button>
+          </div>
+        </div></div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card shadow-sm"><div class="card-body">
+          <h2 class="h5">How to play</h2>
+          <ol class="mb-0">
+            <li>Read the shuffled words.</li>
+            <li>Click them in order to make a correct English sentence.</li>
+            <li>Press <strong>Check</strong>.</li>
+            <li>Press <strong>Next sentence</strong> for a new one.</li>
+          </ol>
+        </div></div>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-dark text-white mt-5 py-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <img src="../images/logo.png" alt="STM logo" height="40" class="bg-white rounded p-1 mb-2" />
+          <p class="small text-white-50 mb-0">Student Task Management – COMP3700 term project, Sultan Qaboos University.</p>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h6">Quick links</h2>
+          <ul class="list-unstyled small mb-0">
+            <li><a class="link-light" href="../index.html">Dashboard</a></li>
+            <li><a class="link-light" href="calendar.html">Calendar</a></li>
+            <li><a class="link-light" href="courses.html">Courses</a></li>
+            <li><a class="link-light" href="goals.html">Goals</a></li>
+            <li><a class="link-light" href="questionnaire.html">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h6">Contact</h2>
+          <ul class="list-unstyled small mb-0">
+            <li>s143052@student.squ.edu.om</li>
+            <li>s145376@student.squ.edu.om</li>
+            <li>Muscat, Oman</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary" />
+      <p class="text-center small text-white-50 mb-0">&#169; 2026 STM – Student Task Management</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="../js/funpage.js"></script>
+</body>
+</html>
